@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+
+- rule: Decirle adiós al usuario si se despide
+  steps:
+  - intent: despedirse
+  - action: utter_despedirse
+
+- rule: Prensentarme si el usuario me pregunta quién soy
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: el usuario quiere aprender
+  steps:
+  - intent: aprender
+  - action: utter_temario
+
+- rule: el usuario quiere evaluarse
+  steps:
+  - intent: evaluar
+  - action: utter_preguntar
