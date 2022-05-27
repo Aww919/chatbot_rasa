@@ -6,28 +6,25 @@ stories:
   steps:
   - intent: saludar
   - action: utter_saludar
+  - intent: informar_nombre
   - action: utter_preguntar_opcion
+  - intent: aprender
+  - action: utter_temario
+  - intent: aprender_tierra
+  - action: action_tierra
   - intent: mood_great
   - action: utter_happy
 
-- story: sad path 1
+- story: happy path
   steps:
   - intent: saludar
   - action: utter_saludar
+  - intent: informar_nombre
   - action: utter_preguntar_opcion
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: afirmar
+  - intent: aprender
+  - action: utter_temario
+  - intent: aprender_sistemasolar
+  - action: action_tierra
+  - intent: mood_great
   - action: utter_happy
 
-- story: sad path 2
-  steps:
-  - intent: saludar
-  - action: utter_saludar
-  - action: utter_preguntar_opcion
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: negar
-  - action: utter_despedirse

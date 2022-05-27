@@ -12,20 +12,53 @@ intents:
   - evaluar
   - aprender_tierra
   - aprender_luna
+  - aprender_sistemasolar
+  - informar_nombre
 
+entities:
+  - nombre
+
+slots:
+  nombre:
+    type: text
+    influence_conversation: false
+    initial_value: "amig@"
+    mappings:
+    - type: from_entity
+      entity: nombre
+#  tema:
+ #   type: text
+ #   influence_conversation: false
+ #  mappings:
+  #  - type: from_intent
+  #    value: "tierra"
+  #    intent: aprender_tierra
+   # - type: from_intent
+  #    value: "sistema_solar"
+  #    intent: aprender_sistemasolar
 
 
 responses:
   utter_saludar:
-  - text: "¡Bienvenid@! Soy Unny, un bot experto en la astronomía."
+  - text: "¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?"
 
   utter_preguntar_opcion:
-  - text: "Elige una de las siguientes opciones:"
+  - text: "{nombre}, puedes elegir una de las siguientes opciones:"
     buttons:
     - title: "Aprender"
       payload: "/aprender"
     - title: "Evaluar"
       payload: "/evaluar"
+
+  utter_temario:
+  - text: "Elige uno de los siguientes temas:"
+    buttons:
+    - title: "Sistema Solar"
+      payload: "/aprender_sistemasolar"
+    - title: "Tierra"
+      payload: "/aprender_tierra"
+    - title: "Luna"
+      payload: "/aprender_luna"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -43,16 +76,15 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_temario:
-  - text: "Elige uno de los siguientes temas:"
-    buttons:
-    - title: "Tierra"
-      payload: "/aprender_tierra"
-    - title: "Luna"
-      payload: "/aprender_luna"
-
   utter_preguntar:
   - text: "¿Cuántos planetas hay en el Sistema Solar?"
+
+actions:
+  - action_nombre
+  - action_tierra
+
+
+
 
 
 #forms:

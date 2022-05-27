@@ -22,6 +22,20 @@ nlu:
     - buenas tardes
     - buenas noches
 
+- intent: informar_nombre
+  examples: |
+    - mi nombre es [andrea](nombre)
+    - me llamo [andrea](nombre)
+    - [andrea](nombre)
+    - soy [andrea](nombre)
+    - soy [lucia](nombre)
+    - me llamo [lucia](nombre)
+    - me llamo [ivan](nombre)
+    - me llamo [raquel](nombre)
+    - me llamo [juan](nombre)
+    - mi nombre es [francisco](nombre)
+    - [alberto](nombre)
+
 - intent: despedirse
   examples: |
     - Adiós
