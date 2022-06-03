@@ -10,13 +10,16 @@ intents:
   - bot_challenge
   - aprender
   - evaluar
-  - aprender_tierra
-  - aprender_luna
-  - aprender_sistemasolar
   - informar_nombre
+  - elegir_tema
+  - elegir_nivel
+  - pedir_ayuda
+  - menu
 
 entities:
   - nombre
+  - nivel
+  - tema
 
 slots:
   nombre:
@@ -26,62 +29,80 @@ slots:
     mappings:
     - type: from_entity
       entity: nombre
-#  tema:
- #   type: text
- #   influence_conversation: false
- #  mappings:
-  #  - type: from_intent
-  #    value: "tierra"
-  #    intent: aprender_tierra
-   # - type: from_intent
-  #    value: "sistema_solar"
-  #    intent: aprender_sistemasolar
+  nivel:
+    type: categorical
+    values:
+      - principiante
+      - medio
+      - avanzado
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nivel
+  tema:
+    type: categorical
+    values:
+      - tierra
+      - sistema solar
+      - luna
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tema
 
 
 responses:
   utter_saludar:
   - text: "¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?"
 
-  utter_preguntar_opcion:
+  utter_ok_nombre:
+  - text: "De acuerdo, {nombre}."
+
+  utter_menu:
   - text: "{nombre}, puedes elegir una de las siguientes opciones:"
     buttons:
     - title: "Aprender"
       payload: "/aprender"
-    - title: "Evaluar"
+    - title: "Responder preguntas"
       payload: "/evaluar"
 
   utter_temario:
   - text: "Elige uno de los siguientes temas:"
     buttons:
     - title: "Sistema Solar"
-      payload: "/aprender_sistemasolar"
+      payload: '/elegir_tema{{"tema":"sistema solar"}}'
     - title: "Tierra"
-      payload: "/aprender_tierra"
+      payload: '/elegir_tema{{"tema":"tierra"}}'
     - title: "Luna"
-      payload: "/aprender_luna"
+      payload: '/elegir_tema{{"tema":"luna"}}'
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_niveles:
+  - text: "Elige uno de los siguientes niveles:"
+    buttons:
+    - title: "Nivel Principiante"
+      payload: '/elegir_nivel{{"nivel":"principiante"}}'
+    - title: "Nivel Medio"
+      payload: '/elegir_nivel{{"nivel":"medio"}}'
+    - title: "Nivel Avanzado"
+      payload: '/elegir_nivel{{"nivel":"avanzado"}}'
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_has_elegido_tema:
+  - text: "Has elegido el tema {tema}."
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_has_elegido_nivel:
+  - text: "Has elegido el nivel {nivel}."
+
 
   utter_despedirse:
   - text: "Hasta la próxima"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by Rasa, developed by Aiwen Zhou."
 
-  utter_preguntar:
-  - text: "¿Cuántos planetas hay en el Sistema Solar?"
+  utter_instrucciones:
+  - text: "Soy las instrucciones..."
 
-actions:
-  - action_nombre
-  - action_tierra
+
 
 
 
@@ -94,4 +115,4 @@ actions:
 
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false

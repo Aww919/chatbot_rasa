@@ -12,12 +12,12 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: el usuario quiere aprender
+- rule: Pren
   steps:
-  - intent: aprender
-  - action: utter_temario
+  - intent: pedir_ayuda
+  - action: utter_instrucciones
 
-- rule: el usuario quiere evaluarse
+- rule: Pren
   steps:
-  - intent: evaluar
-  - action: utter_preguntar
+  - intent: menu
+  - action: utter_menu

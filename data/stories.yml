@@ -2,29 +2,29 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: happy path1
   steps:
   - intent: saludar
   - action: utter_saludar
   - intent: informar_nombre
-  - action: utter_preguntar_opcion
-  - intent: aprender
-  - action: utter_temario
-  - intent: aprender_tierra
-  - action: action_tierra
-  - intent: mood_great
-  - action: utter_happy
+  - action: utter_ok_nombre
+  - action: utter_menu
 
-- story: happy path
+- story: happy path2
   steps:
-  - intent: saludar
-  - action: utter_saludar
-  - intent: informar_nombre
-  - action: utter_preguntar_opcion
+  - action: utter_menu
   - intent: aprender
   - action: utter_temario
-  - intent: aprender_sistemasolar
-  - action: action_tierra
-  - intent: mood_great
-  - action: utter_happy
+  - intent: elegir_tema
+  - action: utter_has_elegido_tema
+
+
+- story: happy path3
+  steps:
+  - action: utter_menu
+  - intent: evaluar
+  - action: utter_niveles
+  - intent: elegir_nivel
+  - action: utter_has_elegido_nivel
+  
 
