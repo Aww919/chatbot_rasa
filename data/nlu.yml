@@ -38,7 +38,7 @@ nlu:
     - mi nombre es [francisco](nombre)
     - [alberto](nombre)
     - [javier](nombre)
-    - [andrea](nombre)
+    - me llamo [carlos]{"entity": "nombre", "value": "carlos"}
 - intent: despedirse
   examples: |
     - Adiós
@@ -121,3 +121,10 @@ nlu:
     - ayuda
     - que puedo hacer?
     - que hay que hacer?
+- intent: responder
+  examples: |
+    - 8 planetas
+    - 28 días
+    - 70%
+    - 365 días
+    - 24 horas

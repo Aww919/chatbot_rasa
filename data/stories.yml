@@ -32,7 +32,6 @@ stories:
   - intent: elegir_nivel
   - action: utter_has_elegido_nivel
 
-
 - story: happy path3
   steps:
   - action: utter_menu
@@ -44,5 +43,36 @@ stories:
     - nivel: principiante
   - action: action_preguntas_principiante
 
+- story: happy path3
+  steps:
+  - action: utter_menu
+  - intent: evaluar
+  - action: utter_niveles
+  - intent: elegir_nivel
+  - action: utter_has_elegido_nivel
+  - slot_was_set:
+    - nivel: principiante
+  - action: action_preguntas_principiante
+  - intent: responder
+  - action: action_comprobar_respuesta
+
 
   
+- story: interactive_story_1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: informar_nombre
+    entities:
+    - nombre: carlos
+  - action: utter_ok_nombre
+  - action: utter_menu
+  - intent: evaluar
+  - action: utter_niveles
+  - intent: elegir_nivel
+    entities:
+    - nivel: principiante
+  - slot_was_set:
+    - nivel: principiante
+  - action: utter_has_elegido_nivel
+  - action: action_preguntas_principiante

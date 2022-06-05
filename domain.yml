@@ -1,126 +1,104 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - saludar
-  - despedirse
-  - afirmar
-  - negar
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - aprender
-  - evaluar
-  - informar_nombre
-  - elegir_tema
-  - elegir_nivel
-  - pedir_ayuda
-  - menu
-
+- afirmar
+- aprender
+- bot_challenge
+- despedirse
+- elegir_nivel
+- elegir_tema
+- evaluar
+- informar_nombre
+- menu
+- mood_great
+- mood_unhappy
+- negar
+- pedir_ayuda
+- saludar
+- responder
 entities:
-  - nombre
-  - nivel
-  - tema
-
-#forms:
- # tema_form:
-  #  required_slots:
-   # - tema
-
-
+- nivel
+- nombre
+- tema
 slots:
   nombre:
     type: text
     influence_conversation: false
-    initial_value: "amig@"
+    initial_value: amig@
     mappings:
     - type: from_entity
       entity: nombre
-
   nivel:
     type: categorical
     values:
-      - principiante
-      - medio
-      - avanzado
+    - principiante
+    - medio
+    - avanzado
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: nivel
-
   tema:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: tema
-
-
-
-
-
+  n_pregunta:
+    type: float
+    initial_value: 0
+    influence_conversation: false
+    mappings:
+    - type: custom
+      entity: action_preguntas_principiante
 responses:
   utter_saludar:
-  - text: "¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?"
-
+  - text: ¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?
   utter_ok_nombre:
-  - text: "De acuerdo, {nombre}."
-
+  - text: De acuerdo, {nombre}.
   utter_menu:
-  - text: "{nombre}, puedes elegir una de las siguientes opciones:"
+  - text: '{nombre}, puedes elegir una de las siguientes opciones:'
     buttons:
-    - title: "Aprender"
-      payload: "/aprender"
-    - title: "Responder preguntas"
-      payload: "/evaluar"
-
+    - title: Aprender
+      payload: /aprender
+    - title: Responder preguntas
+      payload: /evaluar
   utter_temario:
-  - text: "Elige uno de los siguientes temas:"
+  - text: 'Elige uno de los siguientes temas:'
     buttons:
-    - title: "Sistema Solar"
+    - title: Sistema Solar
       payload: /elegir_tema{{"tema":"sistema solar"}}
-    - title: "Tierra"
+    - title: Tierra
       payload: /elegir_tema{{"tema":"tierra"}}
-    - title: "Luna"
+    - title: Luna
       payload: /elegir_tema{{"tema":"luna"}}
-
   utter_niveles:
-  - text: "Elige uno de los siguientes niveles:"
+  - text: 'Elige uno de los siguientes niveles:'
     buttons:
-    - title: "Nivel Principiante"
-      payload: '/elegir_nivel{{"nivel":"principiante"}}'
-    - title: "Nivel Medio"
-      payload: '/elegir_nivel{{"nivel":"medio"}}'
-    - title: "Nivel Avanzado"
-      payload: '/elegir_nivel{{"nivel":"avanzado"}}'
-
+    - title: Nivel Principiante
+      payload: /elegir_nivel{{"nivel":"principiante"}}
+    - title: Nivel Medio
+      payload: /elegir_nivel{{"nivel":"medio"}}
+    - title: Nivel Avanzado
+      payload: /elegir_nivel{{"nivel":"avanzado"}}
   utter_has_elegido_tema:
-  - text: "Has elegido el tema {tema}."
-
+  - text: Has elegido el tema {tema}.
   utter_has_elegido_nivel:
-  - text: "Has elegido el nivel {nivel}."
-
-
+  - text: Has elegido el nivel {nivel}.
   utter_despedirse:
-  - text: "Hasta la próxima"
-
+  - text: Hasta la próxima
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa, developed by Aiwen Zhou."
-
+  - text: I am a bot, powered by Rasa, developed by Aiwen Zhou.
   utter_instrucciones:
-  - text: "Soy las instrucciones..."
-
-  
-
-
+  - text: Soy las instrucciones...
 actions:
- # - validate_tema_form
-- action_tema_elegido
 - action_preguntas_principiante
-
-
-
-
-
+- action_comprobar_respuesta
+- action_tema_elegido
+- utter_has_elegido_nivel
+- utter_menu
+- utter_niveles
+- utter_ok_nombre
+- utter_saludar
 
 session_config:
   session_expiration_time: 60

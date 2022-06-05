@@ -47,35 +47,57 @@ class ActionPregPrincipiante(Action):
     def name(self) -> Text:
         return "action_preguntas_principiante"
 
+    '''def num_preg_seleccionada(self):
+        with open('./preg_principiante.txt') as myfile:
+                total_lineas = sum(1 for line in myfile)
+        total_preguntas=total_lineas/5
+        n_aleatorio=random.randint(1,total_preguntas)
+        n_preg=(n_aleatorio-1)*5+1
+        return(n_preg)
+'''
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             with open('./preg_principiante.txt') as myfile:
                 total_lineas = sum(1 for line in myfile)
-                '''contenido=myfile.readlines()
-            total_lineas=len(contenido)'''
-            total_preguntas=total_lineas/4
+            total_preguntas=total_lineas/5
             n_aleatorio=random.randint(1,total_preguntas)
-            n_preg_seleccionada=n_aleatorio+3*(n_aleatorio-1)
-            '''print(total_lineas)
-            print(n_aleatorio)
-            print(n_preg_seleccionada)
-            preg_seleccionada=contenido[n_preg_seleccionada]
-            resp1=contenido[1+n_preg_seleccionada]
-            resp2=contenido[2+n_preg_seleccionada]
-            resp3=contenido[3+n_preg_seleccionada]'''
-
+            n_preg_seleccionada=(n_aleatorio-1)*5+1
+            '''n_preg_seleccionada = self.num_preg_seleccionada()'''
             preg_seleccionada=linecache.getline('preg_principiante.txt',n_preg_seleccionada)
             resp1=linecache.getline('preg_principiante.txt',1+n_preg_seleccionada)
             resp2=linecache.getline('preg_principiante.txt',2+n_preg_seleccionada)
             resp3=linecache.getline('preg_principiante.txt',3+n_preg_seleccionada)
+            solucion=linecache.getline('preg_principiante.txt',4+n_preg_seleccionada)
             dispatcher.utter_message(text=preg_seleccionada, buttons = [
-                            {"payload":"contestar_preg_principiante","title":resp1},
-                            {"payload":"contestar_preg_principiante","title":resp2},
-                            {"payload":"contestar_preg_principiante","title":resp3},
+                            {"payload":resp1,"title":resp1},
+                            {"payload":resp2,"title":resp2},
+                            {"payload":resp3,"title":resp3},
                         ])
-            return[]
-        
+            return[SlotSet("n_pregunta",n_aleatorio)]
+
+class ActionComprobarRespuesta(Action):
+
+    def name(self) -> Text:
+        return "action_comprobar_respuesta"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            n_preg_seleccionada=tracker.get_slot("n_pregunta")
+            resp_correcta=linecache.getline('resp_principiante.txt',n_preg_seleccionada)
+
+            user_respuesta=str(tracker.latest_message['text'])
+            n_linea_solucion=((n_preg_seleccionada-1)*5+1)+4
+            if user_respuesta in resp_correcta:
+                dispatcher.utter_message(text="Enhorabuena, has elegido la respuesta correcta.")
+            else:
+                solucion=linecache.getline('preg_principiante.txt',n_linea_solucion)
+                dispatcher.utter_message(text="Oh no, esa no era la respuesta correcta. ")
+                dispatcher.utter_message(text=solucion)
+            '''dispatcher.utter_message(text=user_respuesta)
+                dispatcher.utter_message(text=resp_correcta)'''
+            return[] 
 
     '''    
         if tracker.get_intent_of_latest_message()=="elegir_tema":
