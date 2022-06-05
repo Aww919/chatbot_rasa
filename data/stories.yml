@@ -16,7 +16,12 @@ stories:
   - intent: aprender
   - action: utter_temario
   - intent: elegir_tema
-  - action: utter_has_elegido_tema
+  - action: action_tema_elegido
+
+- story: happy path4
+  steps:
+  - intent: elegir_tema
+  - action: action_tema_elegido
 
 
 - story: happy path3
@@ -26,5 +31,18 @@ stories:
   - action: utter_niveles
   - intent: elegir_nivel
   - action: utter_has_elegido_nivel
-  
 
+
+- story: happy path3
+  steps:
+  - action: utter_menu
+  - intent: evaluar
+  - action: utter_niveles
+  - intent: elegir_nivel
+  - action: utter_has_elegido_nivel
+  - slot_was_set:
+    - nivel: principiante
+  - action: action_preguntas_principiante
+
+
+  

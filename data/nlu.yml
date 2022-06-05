@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: saludar
   examples: |
@@ -21,7 +20,10 @@ nlu:
     - buenos días
     - buenas tardes
     - buenas noches
-
+- intent: menu
+  examples: |
+    - menu
+    - quiero ver el menu
 - intent: informar_nombre
   examples: |
     - mi nombre es [andrea](nombre)
@@ -35,7 +37,8 @@ nlu:
     - me llamo [juan](nombre)
     - mi nombre es [francisco](nombre)
     - [alberto](nombre)
-
+    - [javier](nombre)
+    - [andrea](nombre)
 - intent: despedirse
   examples: |
     - Adiós
@@ -52,7 +55,6 @@ nlu:
     - hasta mañana
     - byebye
     - hasta la próxima
-
 - intent: afirmar
   examples: |
     - yes
@@ -64,7 +66,6 @@ nlu:
     - sí
     - correcto
     - bien
-
 - intent: negar
   examples: |
     - no
@@ -75,8 +76,6 @@ nlu:
     - no way
     - not really
     - no quiero
-
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -89,13 +88,10 @@ nlu:
     - con quien estoy hablando?
     - estoy hablando con un bot?
     - estoy hablando con un humano?
-
-
 - intent: aprender
   examples: |
     - quiero aprender
     - quiero seguir aprendiendo
-
 - intent: evaluar
   examples: |
     - quiero contestar preguntas
@@ -103,7 +99,6 @@ nlu:
     - evaluame
     - evaluar
     - quiero que me evalues
-
 - intent: elegir_tema
   examples: |
     - [sistema solar](tema)
@@ -112,7 +107,6 @@ nlu:
     - el tema [luna](tema)
     - el tema [sistema solar](tema)
     - el tema [tierra](tema)
-
 - intent: elegir_nivel
   examples: |
     - [principiante](nivel)
@@ -121,11 +115,9 @@ nlu:
     - nivel [medio](nivel)
     - nivel [avanzado](nivel)
     - nivel [principiante](nivel)
-
 - intent: pedir_ayuda
   examples: |
     - necesito ayuda
     - ayuda
     - que puedo hacer?
     - que hay que hacer?
-    

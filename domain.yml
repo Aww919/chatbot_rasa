@@ -21,6 +21,12 @@ entities:
   - nivel
   - tema
 
+#forms:
+ # tema_form:
+  #  required_slots:
+   # - tema
+
+
 slots:
   nombre:
     type: text
@@ -29,6 +35,7 @@ slots:
     mappings:
     - type: from_entity
       entity: nombre
+
   nivel:
     type: categorical
     values:
@@ -39,16 +46,16 @@ slots:
     mappings:
     - type: from_entity
       entity: nivel
+
   tema:
-    type: categorical
-    values:
-      - tierra
-      - sistema solar
-      - luna
-    influence_conversation: false
+    type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: tema
+
+
+
 
 
 responses:
@@ -70,11 +77,11 @@ responses:
   - text: "Elige uno de los siguientes temas:"
     buttons:
     - title: "Sistema Solar"
-      payload: '/elegir_tema{{"tema":"sistema solar"}}'
+      payload: /elegir_tema{{"tema":"sistema solar"}}
     - title: "Tierra"
-      payload: '/elegir_tema{{"tema":"tierra"}}'
+      payload: /elegir_tema{{"tema":"tierra"}}
     - title: "Luna"
-      payload: '/elegir_tema{{"tema":"luna"}}'
+      payload: /elegir_tema{{"tema":"luna"}}
 
   utter_niveles:
   - text: "Elige uno de los siguientes niveles:"
@@ -102,16 +109,18 @@ responses:
   utter_instrucciones:
   - text: "Soy las instrucciones..."
 
+  
+
+
+actions:
+ # - validate_tema_form
+- action_tema_elegido
+- action_preguntas_principiante
 
 
 
 
 
-
-#forms:
-#  eleccion_form:
- #   required_slots:
-  #  - eleccion
 
 session_config:
   session_expiration_time: 60
