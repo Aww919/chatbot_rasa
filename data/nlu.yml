@@ -38,7 +38,9 @@ nlu:
     - mi nombre es [francisco](nombre)
     - [alberto](nombre)
     - [javier](nombre)
-    - me llamo [carlos]{"entity": "nombre", "value": "carlos"}
+    - me llamo [carlos](nombre)
+    - me llamo [martin](nombre)
+    - [zhanyao](nombre)
 - intent: despedirse
   examples: |
     - Adiós
@@ -122,9 +124,191 @@ nlu:
     - que puedo hacer?
     - que hay que hacer?
 - intent: responder
+  examples:
+  - text: |
+      8 planetas
+  - text: |
+      70%
+  - text: |
+      365 días
+  - text: |
+      24 horas
+  - text: |
+      Porque sus movimientos de rotación y traslación están sincronizados
+  - text: |
+      300.000 km/s
+  - text: |
+      Piedras
+  - text: |
+      Es una etapa de la vida de una estrella
+  - text: |
+      Ninguna de las opciones
+  - text: |
+      Verdadero
+  - text: |
+      Vía Láctea
+  - text: |
+      Metano
+  - text: |
+      247 años
+  - text: |
+      Se está acelerando
+  - text: |
+      Nube de OORT
+  - text: |
+      Tercera
+  - text: |
+      2
+  - text: |
+      1d 0h 37min
+  - text: |
+      Horizonte de sucesos
+  - text: |
+      El centro de la mayoría de las galaxias
+  - text: |
+      Tiene una vida muy larga
+  - text: |
+      No
+  - text: |
+      QV Telescopii (HR 6819)
+  - text: |
+      Porque no reflejan ni emiten ningún tipo de radiación
+  - text: |
+      tres
+  - text: |
+      88 días
+  - text: |
+      9h 50min
+  - text: |
+      Existe uno
+  - text: |
+      El Sol
+  - text: |
+      Mercurio y Venus
+  - text: |
+      Siempre en dirección opuesta al Sol
+  - text: |
+      Dos, uno de polvo y otro de plasma.
+  - text: |
+      Una unidad de medida de distancia	
+  - text: |
+      Cada 76 años
+  - text: |
+      8 minutos y 19 segundos	
+  - text: |
+      Hielo
+  - text: |
+      Venus
+  - text: |
+      Cosmología
+  - text: |
+      venus
+  - text: |
+      ninguno
+- lookup: nombre
   examples: |
-    - 8 planetas
-    - 28 días
-    - 70%
-    - 365 días
-    - 24 horas
+    - andrea
+    - raquel
+    - fran
+    - francisco
+    - daniel
+    - ivan
+    - lucia
+    - ana
+    - elena
+    - jose
+    - juan
+    - carlos
+    - juan carlos
+    - alberto
+    - alvaro
+    - zhanyao
+    - santiago
+    - javier
+    - javi
+    - rodrigo
+    - german
+    - luis
+    - pablo
+    - guillermo
+    - guille
+    - paco
+    - diana
+    - paula
+    - alba
+    - laura
+    - maria
+    - mario
+    - david
+    - elisa
+    - erica
+    - ignacio
+    - alex
+    - alejandro
+    - alejandra
+    - ruben
+    - victor
+    - sergio
+    - roberto
+    - cristobal
+    - sara
+    - manuel
+    - cristina
+    - martin
+    - teresa
+    - jaime
+    - pepe
+    - pepa
+    - aitana
+    - virginia
+    - eva
+    - monica
+    - sofia
+    - isaac
+    - iker
+    - marcelo
+    - cristiano
+    - leonardo
+    - leonor
+    - cecilia
+    - barbara
+    - bea
+    - beatriz
+    - julia
+    - jorge
+    - lola
+    - maria jose
+    - maria del carmen
+    - olga
+    - antonio
+    - lorenzo
+    - aurelia
+    - angel
+    - fernando
+    - rebeca
+    - miriam
+    - silvia
+    - tesa
+    - hugo
+    - adrian
+    - lucas
+    - isabel
+    - paloma
+    - lara
+    - raul
+    - hector
+    - ema
+    - emma
+    - ester
+    - esther
+    - irene
+    - simon
+    - marta
+    - samuel
+    - enrique
+    - felipe
+    - leticia
+    - soraya
+    - carla
+    - eduardo
+    - valentin

@@ -56,6 +56,49 @@ stories:
   - intent: responder
   - action: action_comprobar_respuesta
 
+- story: happy path3
+  steps:
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preguntas_seguidas: 1
+  - action: action_preguntas_principiante
+  - intent: responder
+  - action: action_comprobar_respuesta
+
+- story: happy path3
+  steps:
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preguntas_seguidas: 2
+  - action: action_preguntas_principiante
+  - intent: responder
+  - action: action_comprobar_respuesta
+
+- story: happy path3
+  steps:
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preguntas_seguidas: 3
+  - action: action_preguntas_principiante
+  - intent: responder
+  - action: action_comprobar_respuesta
+
+- story: happy path3
+  steps:
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preguntas_seguidas: 4
+  - action: action_preguntas_principiante
+  - intent: responder
+  - action: action_comprobar_respuesta
+
+- story: happy path3
+  steps:
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preguntas_seguidas: 5
+  - action: action_nota
+  - action: utter_menu
 
   
 - story: interactive_story_1
@@ -76,3 +119,125 @@ stories:
     - nivel: principiante
   - action: utter_has_elegido_nivel
   - action: action_preguntas_principiante
+
+- story: interactive_story_1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: informar_nombre
+    entities:
+    - nombre: martin
+  - action: utter_ok_nombre
+  - action: utter_menu
+  - intent: evaluar
+  - action: utter_niveles
+  - intent: elegir_nivel
+    entities:
+    - nivel: principiante
+  - slot_was_set:
+    - nivel: principiante
+  - action: utter_has_elegido_nivel
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - preguntas_seguidas: 1
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - preguntas_seguidas: 2
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - preguntas_seguidas: 3
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - preguntas_seguidas: 4
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - preguntas_seguidas: 5
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - action: action_nota
+  - action: utter_menu
+
+
+- story: interactive_story_1
+  steps:
+  - intent: no_seguir
+  - action: action_nota
+  - action: utter_menu
+- story: interactive_story_1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: informar_nombre
+    entities:
+    - nombre: zhanyao
+  - action: utter_ok_nombre
+  - action: utter_menu
+  - intent: evaluar
+  - action: utter_niveles
+  - intent: elegir_nivel
+    entities:
+    - nivel: principiante
+  - slot_was_set:
+    - nivel: principiante
+  - action: utter_has_elegido_nivel
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - n_pregunta: 9
+  - slot_was_set:
+    - preguntas_seguidas: 1
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 0
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - n_pregunta: 33
+  - slot_was_set:
+    - preguntas_seguidas: 2
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 0
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - n_pregunta: 17
+  - slot_was_set:
+    - preguntas_seguidas: 3
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 1
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - n_pregunta: 22
+  - slot_was_set:
+    - preguntas_seguidas: 4
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 2
+  - action: action_preguntas_principiante
+  - slot_was_set:
+    - n_pregunta: 10
+  - slot_was_set:
+    - preguntas_seguidas: 5
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 3
+  - action: action_nota
+  - slot_was_set:
+    - n_pregunta: 0
+  - slot_was_set:
+    - preguntas_seguidas: 0
+  - slot_was_set:
+    - n_correctos: 0
+  - action: utter_menu

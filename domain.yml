@@ -13,11 +13,11 @@ intents:
 - mood_unhappy
 - negar
 - pedir_ayuda
-- saludar
 - responder
+- saludar
 entities:
-- nivel
 - nombre
+- nivel
 - tema
 slots:
   nombre:
@@ -50,6 +50,20 @@ slots:
     mappings:
     - type: custom
       entity: action_preguntas_principiante
+  preguntas_seguidas:
+    type: float
+    initial_value: 0
+    influence_conversation: true
+    mappings:
+    - type: custom
+      entity: action_preguntas_principiante
+  n_correctos:
+    type: float
+    initial_value: 0
+    influence_conversation: false
+    mappings:
+    - type: custom
+      entity: action_nota
 responses:
   utter_saludar:
   - text: ¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?
@@ -91,15 +105,15 @@ responses:
   utter_instrucciones:
   - text: Soy las instrucciones...
 actions:
-- action_preguntas_principiante
 - action_comprobar_respuesta
+- action_nota
+- action_preguntas_principiante
 - action_tema_elegido
 - utter_has_elegido_nivel
 - utter_menu
 - utter_niveles
 - utter_ok_nombre
 - utter_saludar
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
