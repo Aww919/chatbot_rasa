@@ -18,46 +18,16 @@ Respuesta correcta: La Tierra tarda 365 días 5 horas 45 minutos y 46 segundos e
 24 horas
 30 o 31 días, dependiendo del mes
 Respuesta correcta: La Tierra tarda 23 horas 56 minutos y 4 segundos en dar una vuelta sobre sí misma, aproximadamente 24 horas.
-¿Por qué la Luna nos muestra siempre la misma cara?
-Porque sus movimientos de rotación y traslación están sincronizados
-Porque no rota sobre sí misma, sólo gira alrededor de la Tierra
-Porque la velocidad de traslación de la Luna es igual a la velocidad de rotación de la Tierra
-Respuesta correcta: la Luna rota sobre sí misma y sobre la Tierra a la misma velocidad, es decir, sus movimientos de rotación y traslación están sincronizados.
-¿Cuál es la velocidad de la luz?
-300.000 m/s
-300.000 km/s
-3.000.000 km/s
-Respuesta correcta: la luz tiene una velocidad de 299.792,458 km/s en el vacío, aproximadamente 300.000 km/s.
-¿De qué está compuesto el anillo de Saturno?
-Gases
-Piedras
-Vapor de agua
-Respuesta correcta: El anillo de Saturno está compuesto por piedras que giran a gran velocidad alrededor de él. Pueden ser pequeñas como granos de arena y enormes como casas.
-¿Qué es una supernova?
-Es un tipo de galaxia
-Es el nombre de un planeta
-Es una etapa de la vida de una estrella
-Respuesta correcta: La supernova es una explosión estelar que se produce como conclusión de la etapa final de la vida de una estrella.
 ¿Cuál es el planeta más pequeño del Sistema Solar?
 Venus
 Marte
 Ninguna de las opciones
 Respuesta correcta: ninguna de la opciones, el planeta más pequeño del Sistema Solar es el Mercurio.
-Los planetas más grandes del sistema solar, Júpiter y Saturno, están compuestos principalmente de helio e hidrógeno.
-Verdadero
-Falso
-Júpiter sí, pero Saturno no
-Respuesta correcta: Verdadero, Júpiter y Saturno son dos planetas con características muy similares, ambos están formados principalmente por hidrógeno y helio.
 ¿En qué galaxia se encuentra el Sistema Solar?
 Andrómeda
 Vía Láctea
 Ninguna de las anteriores
 Respuesta correcta: Vía Láctea
-¿A qué gas se debe el color azul observado en Neptuno?
-Propano
-Metano
-Etano
-Respuesta correcta: Metano
 ¿Cuánto tarda Plutón en completar una vuelta al sol?
 247 años
 192 años
@@ -68,11 +38,6 @@ Se está acelerando
 Está retrocediendo
 Se está deteniendo
 Respuesta correcta: se está acelerando
-¿De qué región del sistema solar provienen los cometas?
-Cinturón de asteroides
-Nube de OORT
-Espacio interestelar
-Respuesta correcta: Nube de OORT
 En orden de distancia al Sol, ¿en qué posición de encuentra la Tierra?
 Tercera
 Cuarta
@@ -93,12 +58,7 @@ Verdadero
 Falso, es lo más complejo
 Falso, no es lo más complejo pero de simple no tiene nada
 Respuesta correcta: Verdadero, aunque no lo parezca, un agujero negro representa el objeto más simple del universo, solo está gobernado por una única fuerza: la gravedad.
-Los agujeros negros están rodeados por una frontera esférica llamada...
-Horizonte cósmico
-Horizonte de sucesos
-Horizonte de gravitación
-Respuesta correcta: horizonte de sucesos, que permite que la luz entre pero no salga.
-e cree que podemos encontrar un agujero negro en...
+Se cree que podemos encontrar un agujero negro en...
 El centro de todas las galaxias
 El centro de la mayoría de las galaxias
 El centro de algunas galaxias
@@ -108,26 +68,11 @@ Vive para siempre
 Tiene una vida muy larga
 Tiene una vida muy corta
 Respuesta correcta: Aunque los agujeros negros no viven eternamente, lo cierto es que su “esperanza de vida” es muy larga,  puede vivir centenares de miles de millones de años debido a que pierden energía muy lentamente.
-¿Podría convertirse el Sol en un agujero negro supermasivo?
-Los científicos creen que sí
-Sí, está comprobado
-No
-Respuesta correcta: No, porque no tiene suficiente masa.
-De los siguientes agujeros negros, ¿cuál es el más cercano a la Tierra?
-QV Telescopii (HR 6819)
-A0620-00 (V616 Mon)
-Cygnus X-1 (Cyg X-1)
-Respuesta correcta: el QV Telescopii está a una distancia de 752 años luz aproximadamente, el A0620-00 a 2800 años luz y el Cygnus X-1 a 6000 años luz. Por tanto, el más cercano es el QV Telescopii.
 ¿Los agujeros negros por qué se llaman así?
 Porque son de color negro
 Porque no reflejan ni emiten ningún tipo de radiación
 Ninguna de las opciones anteriores
 Respuesta correcta: Porque no reflejan ni emiten ningún tipo de radiación
-Según su masa, ¿cuántos tipos de agujeros negros existen?
-tres
-dos
-cuatro
-Respuesta correcta: existen tres tipos de agujeros negros (supermasivos, de masa estelar y micro-agujeros).
 ¿Cuántos días tarda Mercurio en dar una vuelta al Sol?
 88 días
 111 días
@@ -138,11 +83,6 @@ Respuesta correcta: 88 días
 30h 40min
 9h 50min
 Respuesta correcta: Júpiter tiene una velocidad de rotación muy elevada, tarda 9 horas y 50 minutos en dar una vuelta sobre sí mismo.
-¿Existen planetas en el Sistema Solar que su día es más largo que su año?
-Hay tres
-Existe uno
-No
-Respuesta correcta: existe un único caso en el Sistema Solar, Venus, que tarda más en dar una vuelta sobre sí mismo (243 días) que en darla alrededor del Sol (224 días).
 Heliocéntrico significa que el centro es...
 El Sol
 La Tierra
@@ -153,43 +93,68 @@ Mercurio y Marte
 Mercurio y Venus
 Mercurio y Urano
 Respuesta correcta: Mercurio y Venus no tienen satélites que orbitan a su alrededor.
-¿En qué dirección apunta la cola de gas de un cometa?
-En la misma dirección que el movimiento del cometa
-En dirección contraria al movimiento del cometa
-Siempre en dirección opuesta al Sol
-Respuesta correcta: la cola de gas está muy afectada por el viento solar, por lo que apunta siempre a la dirección opuesta al Sol.
-¿Cuántas colas tiene un cometa?
-Dos, uno de polvo y otro de plasma.
-Uno, de polvo.
-Ninguno
-Respuesta correcta: los cometas tienen dos colas, uno de polvo y otro de plasma (gas ionizado)
-¿Qué es un año luz?
-Una unidad de medida de distancia
-Una unidad de medida de tiempo
-Ninguna de las anteriores
-Respuesta correcta: es una unidad de medida de distancia, corresponde a la distancia que recorre la luz durante un año, un año luz equivale aproximadamente a 9,46 billones de kilómetros.
-¿Cada cuántos años se acerca el cometa Halley a la Tierra?
-Cada 67 años
-Cada 76 años
-Cada 176 años
-Respuesta correcta: Cada 76 años
-¿Cuánto tiempo tarda la luz del Sol en llegar a la Tierra?
-8 segundos y 19 centésimas	
-8 minutos y 19 segundos
-8 horas y 19 minutos
-Respuesta correcta: la distancia que tiene que recorrer la luz desde el Sol hasta la Tierra es de unos 150 millos de kilómetros aproximadamente, como la luz viaja a una velocidad de 300.000km/s, la luz llega a la Tierra en 8 min y 19 segundos.
-¿De qué se compone principalmente el núcleo de un cometa?
-Agua	
-Hielo
-Gas
-Respuesta correcta: hielo
-¿Cuál es el planeta más brillante del Sistema Solar visto desde la Tierra?
-Jupiter
-Mercurio
-Venus
-Respuesta correcta: Venus, porque su atmósfera se compone de nubes muy densas de dióxido de carbono que reflejan muy eficientemente la luz del Sol.
 ¿Cómo se llama la ciencia que estudia el origen y la evolución del universo?
 Cosmología
 Tomografía
 Criología
 Respuesta correcta: cosmología
+¿Cuáles de los siguientes cuerpos celestes influye en las mareas del océano?
+Tierra
+Sol
+Luna
+Respuesta correcta: Luna
+Cuando un cuerpo celeste gira en su propio eje, se llama movimiento de...
+Rotación
+Traslación
+Giro propio
+Respuesta correcta: rotación
+¿Qué cuerpo celeste tiene luz propia?
+Planetas
+Satélites
+Estrellas
+Respuesta correcta: estrellas, por que en su interior se producen reacciones que desprenden mucha energía calorífica y luminosa. Un ejemplo de estrella es el Sol.
+Cuanto más rojo es el color de una estrella, la temperatura de su superficie es más...
+alta
+baja
+no depende del color
+Respuesta correcta: baja
+¿Qué color de estrella es la de mayor temperatura?
+Rojo
+Blanco
+Azul
+Respuesta correcta: azul
+¿Qué color de estrella es la de menor temperatura?
+Rojo
+Blanco
+Azul
+Respuesta correcta: rojo
+¿Cuáles de los siguientes cuerpos celestes es una estrella?
+La Luna
+El Sol
+Plutón
+Respuesta correcta: El Sol es una estrella, la Luna es un satélite de la Tierra y Plutón es un planeta enano.
+¿Qué cuerpo astronómico a veces recibe el nombre de \"bola de nieve sucia\"?
+Cometa
+Meteoroide
+Asteroide
+Respuesta correcta: cometa, porque su núcleo está compuesto de hielo meclado con polvo y roca.
+¿Cuál es la diferencia entre un cometa y un asteroide?
+Los asteroides están hechos de gas y polvo mientras que los cometas están hechos de metales
+Los cometas están hechos principalmente de roca y los asteroides de hielo
+Los cometas están hechos principalmente de hielo miestras que los asteroides están hechos de roca
+Respuesta correcta: los cometas están hechos principalmente de hielo y los asteroides de roca.
+¿A qué nos referimos con una \"roca espacial\" que llegó a la superficie de la Tierra?
+Meteoro
+Meteorito
+Cometa
+Respuesta correcta: un cuerpo astronómico que no se ha desprendido del todo en la atmósfera y llega a la superficie es llamado meteorito.
+¿A qué nos referimos cuando hablamos de estrella fugaz?
+Meteoro
+Meteorito
+Cometa
+Respuesta correcta: cuando un meteoroide entra en contacto con la atmósfera se convierte en meteoro, que es un rayo de luz en el cielo.
+¿Los agujeros negros son visibles?
+Sí, son de color negro
+No, porque están muy lejos
+No, porque la luz que entra no sale, por tanto no refleja nada
+Respuesta correcta: No, porque la luz que entra no sale, por tanto no refleja nada.

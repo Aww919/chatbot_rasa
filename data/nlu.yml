@@ -20,10 +20,81 @@ nlu:
     - buenos días
     - buenas tardes
     - buenas noches
+
+- intent: despedirse
+  examples: |
+    - Adiós
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - hasta luego
+    - hasta mañana
+    - byebye
+    - hasta la próxima
+
+- intent: afirmar
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sí
+    - correcto
+    - bien
+    - ok
+    - okey
+    - vale
+    - si
+- intent: verdadero
+  examples: |
+    - verdadero
+    - verdad
+    - es verdad
+    - true
+- intent: negar
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - no quiero
+    - creo que no
+    - la verdad es que no
+- intent: falso
+  examples: |
+    - falso
+    - falso
+    - no es verdad
+    - false
+    - es mentira
+- intent: desconoce
+  examples: |
+    - no lo se
+    - nose
+    - no se
+    - ni idea
+    - desconozco la respuesta
+    - no tengo ni idea
+    - buff que dificil
+    - dime la respuesta
 - intent: menu
   examples: |
     - menu
     - quiero ver el menu
+    - menu principal
+
+
 - intent: informar_nombre
   examples: |
     - mi nombre es [andrea](nombre)
@@ -41,43 +112,68 @@ nlu:
     - me llamo [carlos](nombre)
     - me llamo [martin](nombre)
     - [zhanyao](nombre)
-- intent: despedirse
-  examples: |
-    - Adiós
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-    - hasta luego
-    - hasta mañana
-    - byebye
-    - hasta la próxima
-- intent: afirmar
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-    - sí
-    - correcto
-    - bien
-- intent: negar
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-    - no quiero
+    - [raquel](nombre)
+    - [fran](nombre)
+    - [juana](nombre)
+    - [francisco](nombre)
+    - [daniel](nombre)
+    - [ivan](nombre)
+    - [lucia](nombre)
+    - [ana](nombre)
+    - [elena](nombre)
+    - [jose](nombre)
+    - [juan](nombre)
+    - [carlos](nombre)
+    - [juan carlos](nombre)
+    - [alberto](nombre)
+    - [alvaro](nombre)
+    - [santiago](nombre)
+    - [javier](nombre)
+    - [javi](nombre)
+    - [rodrigo](nombre)
+    - [german](nombre)
+    - [luis](nombre)
+    - [pablo](nombre)
+    - [guillermo](nombre)
+    - [guille](nombre)
+    - [paco](nombre)
+    - [diana](nombre)
+    - [paula](nombre)
+    - [alba](nombre)
+    - [laura](nombre)
+    - [maria](nombre)
+    - [mario](nombre)
+    - [david](nombre)
+    - [elisa](nombre)
+    - [erica](nombre)
+    - [ignacio](nombre)
+    - [alex](nombre)
+    - [alejandro](nombre)
+    - [alejandra](nombre)
+    - [ruben](nombre)
+    - [victor](nombre)
+    - [sergio](nombre)
+    - [roberto](nombre)
+    - [cristobal](nombre)
+    - [sara](nombre)
+    - [manuel](nombre)
+    - [cristina](nombre)
+    - [martin](nombre)
+    - [teresa](nombre)
+    - [jaime](nombre)
+    - [pepe](nombre)
+    - [pepa](nombre)
+    - [aitana](nombre)
+    - [virginia](nombre)
+    - [eva](nombre)
+    - [monica](nombre)
+    - [sofia](nombre)
+    - [isaac](nombre)
+    - [iker](nombre)
+    - [marcelo](nombre)
+    - [cristiano](nombre)
+    
+
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -90,31 +186,65 @@ nlu:
     - con quien estoy hablando?
     - estoy hablando con un bot?
     - estoy hablando con un humano?
+    - como te llamas
+
 - intent: aprender
   examples: |
     - quiero aprender
     - quiero seguir aprendiendo
-- intent: evaluar
+    - temario
+    - temas
+
+- intent: preg_test
   examples: |
-    - quiero contestar preguntas
-    - hazme una pregunta
-    - evaluame
-    - evaluar
-    - quiero que me evalues
+    - quiero contestar preguntas tipo test
+    - quiero contestar preguntas test
+    - test
+    - preguntas test
+    - hazme una pregunta test
+    - preguntas aleatorias
+
 - intent: elegir_tema
   examples: |
-    - [sistema solar](tema)
-    - [luna](tema)
-    - [tierra](tema)
-    - el tema [luna](tema)
-    - el tema [sistema solar](tema)
-    - el tema [tierra](tema)
+    - tema [universo](tema)
+    - tema [estrellas](tema)
+    - tema [ciclo vida estrellas](tema)
+    - tema [planetas](tema)
+    - tema [planetas enanos](tema)
+    - tema [satelites naturales](tema)
+    - tema [tipos satelites naturales](tema)
+    - tema [satelites sistema solar](tema)
+    - tema [asteroides](tema)
+    - tema [meteoroides](tema)
+    - tema [cometas](tema)
+    - tema [galaxias](tema)
+    - tema [agujeros negros](tema)
+    - tema [sistema solar](tema)
+    - tema [sol](tema)
+    - tema [eclipse solar](tema)
+    - tema [viento solar](tema)
+    - tema [luna](tema)
+    - tema [eclipse lunar](tema)
+    - tema [luna mareas](tema)
+    - tema [caras luna](tema)
+    - tema [planetas sistema solar](tema)
+    - tema [mercurio](tema)
+    - tema [venus](tema)
+    - tema [tierra](tema)
+    - tema [marte](tema)
+    - tema [jupiter](tema)
+    - tema [saturno](tema)
+    - tema [urano](tema)
+    - tema [neptuno](tema)
+    - tema [pluton](tema)
+    
+
+    
+
 - intent: elegir_nivel
   examples: |
     - [principiante](nivel)
-    - [medio](nivel)
     - [avanzado](nivel)
-    - nivel [medio](nivel)
     - nivel [avanzado](nivel)
     - nivel [principiante](nivel)
 - intent: pedir_ayuda
@@ -123,151 +253,214 @@ nlu:
     - ayuda
     - que puedo hacer?
     - que hay que hacer?
+- intent: cola_plasma
+  examples: |
+    - cola de plasma
+    - cola de gas
+    - cola de gas ionizado
+    - cola de iones
+    - de plasma
+    - de gas
+    - de gas ionizado
+    
+- intent: cola_polvo
+  examples: |
+    - cola de polvo
+    - de polvo
+
+- intent: satelite_natural_irregular
+  examples: |
+    - satelite natural irregular
+    - satelite irregular
+    - irregular
+
+- intent: satelite_natural_regular
+  examples: |
+    - satelite natural regular
+    - satelite regular
+    - regular
+
+
+- intent: via_lactea
+  examples: |
+    - via lactea
+    - en la via lactea
+- intent: luna_fase_decreciente
+  examples: |
+    - decreciente
+    - fase decreciente
+    - está en fase decreciente
+    - menguante
+    - cuarto menguante
+    - menguante convexa
+    - menguante concava
+    - fase menguante
+- intent: luna_fase_creciente
+  examples: |
+    - creciente
+    - fase creciente
+    - está en fase creciente
+    - cuarto creciente
+    - creciente concava
+    - creciente convexa
+- intent: luna_fase_nueva
+  examples: |
+    - nueva
+    - fase nueva
+    - luna nueva
+    - fase luna nueva
+    - luna fase nueva
+- intent: luna_fase_llena
+  examples: |
+    - llena
+    - fase llena
+    - luna llena
+    - fase luna llena
+    - luna fase llena
+- intent: mercurio
+  examples: |
+    - mercurio
+    - es Mercurio
+    - el planeta mercurio
+- intent: venus
+  examples: |
+    - venus
+    - es venus
+    - el planeta venus
+- intent: tierra
+  examples: |
+    - tierra
+    - es tierra
+    - el planeta tierra
+- intent: marte
+  examples: |
+    - marte
+    - es marte
+    - el planeta marte
+- intent: eclipse_lunar_total
+  examples: |
+    - eclipse lunar total
+    - total
+    - eclipse total
+- intent: eclipse_lunar_penumbral
+  examples: |
+    - eclipse lunar penumbral
+    - penumbral
+    - eclipse penumbral
+- intent: eclipse_lunar_parcial
+  examples: |
+    - eclipse lunar parcial
+    - parcial
+    - eclipse parcial
+- intent: marea_alta
+  examples: |
+    - marea alta
+    - alta
+    - pleamar
+- intent: marea_baja
+  examples: |
+    - marea baja
+    - baja
+    - bajamar
+- intent: marea_viva
+  examples: |
+    - marea viva
+    - viva
+- intent: marea_muerta
+  examples: |
+    - marea muerta
+    - muerta
+- intent: marea_lunar
+  examples: |
+    - marea lunar
+    - lunar
+- intent: marea_solar
+  examples: |
+    - marea solar
+    - solar
 - intent: responder
-  examples:
-  - text: |
-      8 planetas
-  - text: |
-      70%
-  - text: |
-      365 días
-  - text: |
-      24 horas
-  - text: |
-      Porque sus movimientos de rotación y traslación están sincronizados
-  - text: |
-      300.000 km/s
-  - text: |
-      Piedras
-  - text: |
-      Es una etapa de la vida de una estrella
-  - text: |
-      Ninguna de las opciones
-  - text: |
-      Verdadero
-  - text: |
-      Vía Láctea
-  - text: |
-      Metano
-  - text: |
-      247 años
-  - text: |
-      Se está acelerando
-  - text: |
-      Nube de OORT
-  - text: |
-      Tercera
-  - text: |
-      2
-  - text: |
-      1d 0h 37min
-  - text: |
-      Horizonte de sucesos
-  - text: |
-      El centro de la mayoría de las galaxias
-  - text: |
-      Tiene una vida muy larga
-  - text: |
-      No
-  - text: |
-      QV Telescopii (HR 6819)
-  - text: |
-      Porque no reflejan ni emiten ningún tipo de radiación
-  - text: |
-      tres
-  - text: |
-      88 días
-  - text: |
-      9h 50min
-  - text: |
-      Existe uno
-  - text: |
-      El Sol
-  - text: |
-      Mercurio y Venus
-  - text: |
-      Siempre en dirección opuesta al Sol
-  - text: |
-      Dos, uno de polvo y otro de plasma.
-  - text: |
-      Una unidad de medida de distancia	
-  - text: |
-      Cada 76 años
-  - text: |
-      8 minutos y 19 segundos	
-  - text: |
-      Hielo
-  - text: |
-      Venus
-  - text: |
-      Cosmología
-  - text: |
-      venus
-  - text: |
-      ninguno
+  examples: |
+    - 8 planetas
+    - 70%
+    - 365 días
+    - 24 horas
+    - Porque sus movimientos de rotación y traslación están sincronizados
+    - 300.000 km/s
+    - Piedras
+    - Es una etapa de la vida de una estrella
+    - Ninguna de las opciones
+    - Verdadero
+    - Vía Láctea
+    - Metano
+    - 247 años
+    - Se está acelerando
+    - Nube de OORT
+    - Tercera
+    - 2
+    - 1d 0h 37min
+    - Horizonte de sucesos
+    - El centro de la mayoría de las galaxias
+    - Tiene una vida muy larga
+    - No
+    - QV Telescopii (HR 6819)
+    - Porque no reflejan ni emiten ningún tipo de radiación
+    - tres
+    - 88 días
+    - 9h 50min
+    - Existe uno
+    - El Sol
+    - Mercurio y Venus
+    - Siempre en dirección opuesta al Sol
+    - Dos, uno de polvo y otro de plasma
+    - Una unidad de medida de distancia
+    - Cada 76 años
+    - 8 minutos y 19 segundos
+    - Hielo
+    - sol
+    - mercurio
+    - venus
+    - tierra
+    - marte
+    - jupiter
+    - saturno
+    - urano
+    - neptuno
+    - pluton
+    - Cosmología
+    - El viento solar es una corriente de partículas energéticas expulsadas por el Sol
+    - 2062
+    - Luna
+    - Rotación
+    - Estrellas
+    - Rojas-amarillas-blancas-azules
+    - baja
+    - blanco
+    - amarillo
+    - Azul
+    - Rojo
+    - 3000 ºC
+    - ninguno
+    - Falso
+    - alta
+
+- lookup: planeta
+  examples: |
+    - mercurio
+    - venus
+    - tierra
+    - marte
+    - jupiter
+    - saturno
+    - urano
+    - neptuno
+- lookup: estrella
+  examples: |
+    - sol
+- lookup: satelite_natural
+  examples: |
+    - luna
 - lookup: nombre
   examples: |
-    - andrea
-    - raquel
-    - fran
-    - francisco
-    - daniel
-    - ivan
-    - lucia
-    - ana
-    - elena
-    - jose
-    - juan
-    - carlos
-    - juan carlos
-    - alberto
-    - alvaro
-    - zhanyao
-    - santiago
-    - javier
-    - javi
-    - rodrigo
-    - german
-    - luis
-    - pablo
-    - guillermo
-    - guille
-    - paco
-    - diana
-    - paula
-    - alba
-    - laura
-    - maria
-    - mario
-    - david
-    - elisa
-    - erica
-    - ignacio
-    - alex
-    - alejandro
-    - alejandra
-    - ruben
-    - victor
-    - sergio
-    - roberto
-    - cristobal
-    - sara
-    - manuel
-    - cristina
-    - martin
-    - teresa
-    - jaime
-    - pepe
-    - pepa
-    - aitana
-    - virginia
-    - eva
-    - monica
-    - sofia
-    - isaac
-    - iker
-    - marcelo
-    - cristiano
     - leonardo
     - leonor
     - cecilia
@@ -312,3 +505,4 @@ nlu:
     - carla
     - eduardo
     - valentin
+    

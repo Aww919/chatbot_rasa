@@ -1,29 +1,66 @@
 version: '3.1'
 intents:
+- saludar
+- despedirse
+- menu
 - afirmar
+- verdadero
+- negar
+- falso
+- desconoce
+- pedir_ayuda
+- informar_nombre:
+    use_entities:
+      - nombre
+- nombrar_planetas:
+    use_entities:
+      - planeta
+- nombrar_estrellas:
+    use_entities:
+      - estrella
+- nombrar_satelites_naturales:
+    use_entities:
+      - satelite_natural
+- responder
 - aprender
 - bot_challenge
-- despedirse
 - elegir_nivel
 - elegir_tema
-- evaluar
-- informar_nombre
-- menu
-- mood_great
-- mood_unhappy
-- negar
-- pedir_ayuda
-- responder
-- saludar
+- preg_test
+- via_lactea
+- satelite_natural_irregular
+- satelite_natural_regular
+- cola_plasma
+- cola_polvo
+- luna_fase_decreciente
+- luna_fase_creciente
+- luna_fase_nueva
+- luna_fase_llena
+- mercurio
+- venus
+- marte
+- tierra
+- eclipse_lunar_total
+- eclipse_lunar_penumbral
+- eclipse_lunar_parcial
+- marea_alta
+- marea_baja
+- marea_viva
+- marea_muerta
+- marea_lunar
+- marea_solar
 entities:
 - nombre
 - nivel
 - tema
+- planeta
+- estrella
+- satelite_natural
 slots:
   nombre:
     type: text
     influence_conversation: false
-    initial_value: amig@
+    initial_value: Amig@
     mappings:
     - type: from_entity
       entity: nombre
@@ -31,7 +68,6 @@ slots:
     type: categorical
     values:
     - principiante
-    - medio
     - avanzado
     influence_conversation: false
     mappings:
@@ -39,6 +75,7 @@ slots:
       entity: nivel
   tema:
     type: text
+    initial_value: None
     influence_conversation: true
     mappings:
     - type: from_entity
@@ -49,71 +86,305 @@ slots:
     influence_conversation: false
     mappings:
     - type: custom
-      entity: action_preguntas_principiante
+     # action: action_preguntas_principiante
   preguntas_seguidas:
     type: float
     initial_value: 0
     influence_conversation: true
     mappings:
     - type: custom
-      entity: action_preguntas_principiante
+    #  action: action_preguntas_principiante
   n_correctos:
     type: float
     initial_value: 0
     influence_conversation: false
     mappings:
     - type: custom
-      entity: action_nota
+     # action: action_nota
+  #tema_resp_correcta:
+  #  type: bool
+  #  influence_conversation: false
+  #  initial_value: None
+  #  mappings:
+  #  - type: custom
 responses:
   utter_saludar:
-  - text: ¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?
-  utter_ok_nombre:
-  - text: De acuerdo, {nombre}.
+  - text: "¡Bienvenid@! Soy Unny, un experto en la astronomía.¿Cuál es tu nombre?"
+  utter_despedirse:
+  - text: "Hasta la próxima"
+  - text: "Adiós"
+  - text: "Bye"
+  utter_iamabot:
+  - text: "Soy un chatbot desarrollado por Aiwen Zhou con Rasa Open Source."
+  utter_instrucciones:
+  - text: "Soy las instrucciones..."
+  utter_no_entender:
+  - text: "Lo siento, no lo he entendido."
+  - text: "Perdón, no comprendo bien su mensaje."
+  utter_default:
+  - text: "Lo siento, no lo he entendido."
   utter_menu:
-  - text: '{nombre}, puedes elegir una de las siguientes opciones:'
+  - text: "{nombre}, puedes elegir una de las siguientes opciones:"
     buttons:
-    - title: Aprender
+    - title: "Aprender"
       payload: /aprender
-    - title: Responder preguntas
-      payload: /evaluar
-  utter_temario:
-  - text: 'Elige uno de los siguientes temas:'
+    - title: "Responder preguntas test"
+      payload: /preg_test
+    - title: "Abandonar"
+      payload: /despedirse
+  utter_niveles:
+  - text: "Elige uno de los siguientes niveles:"
     buttons:
+    - title: "Nivel Principiante"
+      payload: /elegir_nivel{{"nivel":"principiante"}}
+    - title: "Nivel Avanzado"
+      payload: /elegir_nivel{{"nivel":"avanzado"}}
+  utter_has_elegido_nivel:
+  - text: "Has elegido el nivel {nivel}."
+  utter_has_elegido_tema:
+  - text: "Has elegido el tema {tema}."
+  utter_temario:
+  - text: "Elige uno de los siguientes temas:"
+    buttons:
+    - title: Universo
+      payload: /elegir_tema{{"tema":"universo"}}
     - title: Sistema Solar
       payload: /elegir_tema{{"tema":"sistema solar"}}
-    - title: Tierra
-      payload: /elegir_tema{{"tema":"tierra"}}
+    - title: Sol
+      payload: /elegir_tema{{"tema":"sol"}}
+    - title: Planetas del Sistema Solar
+      payload: /elegir_tema{{"tema":"planetas sistema solar"}}
     - title: Luna
       payload: /elegir_tema{{"tema":"luna"}}
-  utter_niveles:
-  - text: 'Elige uno de los siguientes niveles:'
+
+  utter_preg_temario:
+  - text: "¿Quieres responder una pregunta?"
+  utter_respuesta_correcta:
+  - text: "¡Correcto!"
+  #Universo
+  utter_universo_subtemas:
+  - text: "Puedes ampliar tus conocimientos acerca del Universo:"
     buttons:
-    - title: Nivel Principiante
-      payload: /elegir_nivel{{"nivel":"principiante"}}
-    - title: Nivel Medio
-      payload: /elegir_nivel{{"nivel":"medio"}}
-    - title: Nivel Avanzado
-      payload: /elegir_nivel{{"nivel":"avanzado"}}
-  utter_has_elegido_tema:
-  - text: Has elegido el tema {tema}.
-  utter_has_elegido_nivel:
-  - text: Has elegido el nivel {nivel}.
-  utter_despedirse:
-  - text: Hasta la próxima
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa, developed by Aiwen Zhou.
-  utter_instrucciones:
-  - text: Soy las instrucciones...
+    - title: Estrellas
+      payload: /elegir_tema{{"tema":"estrellas"}}
+    - title: Planetas
+      payload: /elegir_tema{{"tema":"planetas"}}
+    - title: Planetas enanos
+      payload: /elegir_tema{{"tema":"planetas enanos"}}
+    - title: Satélites naturales
+      payload: /elegir_tema{{"tema":"satelites naturales"}}
+    - title: Asteroides
+      payload: /elegir_tema{{"tema":"asteroides"}}
+    - title: Meteoroides
+      payload: /elegir_tema{{"tema":"meteoroides"}}
+    - title: Cometas
+      payload: /elegir_tema{{"tema":"cometas"}}
+    - title: Agujeros negros
+      payload: /elegir_tema{{"tema":"agujeros negros"}}
+
+  #Estrella
+  utter_preg_estrellas:
+  - text: "¿Las estrellas tienen luz propia?"
+  utter_resp_estrellas:
+  - text: "Oops, te has equivocado. Las estrellas sí tienen luz propia."
+  utter_preg_subtema_estrella:
+  - text: "¿Te gustaría conocer el ciclo de vida de una estrella?"
+    buttons:
+    - title: "Sí"
+      payload: /elegir_tema{{"tema":"ciclo vida estrellas"}}
+    - title: "No"
+      payload: /aprender
+
+  #Ciclo vida estrella
+  utter_preg_vidaestrellas:
+  - text: "¿El Sol se convertirá en un agujero negro?"
+  utter_resp_vidaestrellas:
+  - text: "Oops, te has equivocado. El Sol no tiene masa suficiente para acabar en un agujero negro."
+  
+  #Planetas
+  utter_preg_planetas:
+  - text: "¿Los planetas tienen luz propia?"
+  utter_resp_planetas:
+  - text: "Oops, te has equivocado. Los planetas no tienen luz propia."
+  #Planetas Enanos
+  utter_preg_planetasenanos:
+  - text: "Los planetas enanos, a diferencia de los planetas normales, no tiene la suficiente masa como para adquirir equilibrio hidrostático. (Verdadero/Falso) "
+  utter_resp_planetasenanos:
+  - text: "Oops, te has equivocado. Es falso, los planetas enanos sí que tienen suficiente masa como para adquirir equilibrio hidrostático. Su diferencia con los planetas normales es que no son gravitatoriamente predominantes frente a otros elementos de su órbita."
+  #Satelites naturales
+  utter_satelitesnaturales_subtemas:
+  - text: "Puedes ampliar tus conocimientos acerca de los satélites naturales:"
+    buttons:
+    - title: Tipos de satélites naturales
+      payload: /elegir_tema{{"tema":"tipos satelites naturales"}}
+    - title: Satelites del Sistema Solar
+      payload: /elegir_tema{{"tema":"satelites sistema solar"}}
+  #Tipos de satelites naturales
+  utter_preg_tipos_satelitesnaturales:
+  - text: "¿Cómo se llama el tipo de satélite natural que tiene su órbita muy alejada del cuerpo alrededor del que gira? "
+  utter_resp_tipos_satelitesnaturales:
+  - text: "Oops, te has equivocado. Se llama satélite natural irregular."
+  #Satelites naturales del sistema solar
+  utter_preg_satelitesnaturales_sissolar:
+  - text: "¿Es verdad que los planetas interiores poseen menor cantidad de satélites naturales que los exteriores? "
+  utter_resp_satelitesnaturales_sissolar:
+  - text: "Oops, te has equivocado. Es verdadero, los planetas interiores presentan muy pocos satélites naturales respecto a los exteriores, o incluso ninguno como en los casos de Mercurio y Venus."
+  #Asteroides
+  utter_preg_asteroides:
+  - text: "¿La mayoría de asteroides provienen del Cinturón de Kuiper?"
+  utter_resp_asteroides:
+  - text: "Oops, te has equivocado. La mayoría de asteroides provienen del cinturón de asteroides."
+  #Meteoroides
+  utter_preg_meteoroides:
+  - text: "¿Meteoro y meteoroide significan los mismo?"
+  utter_resp_meteoroides:
+  - text: "Oops, te has equivocado. No significan los mismo, sólamente hablamos de meteoros cuando un meteoroide entra en contacto con la atmósfera terrestre."
+  #Cometas
+  utter_preg_cometas:
+  - text: "¿Cuál de las dos colas de un cometa apunta siempre en la dirección contraria al Sol?"
+  utter_resp_cometas:
+  - text: "Oops, te has equivocado. La cola que apunta en dirección directamente contraria al Sol es la cola de plasma."
+  #Agujeros negros
+  utter_preg_agujerosnegros:
+  - text: "¿Los agujeros negros son de color negro?"
+  utter_resp_agujerosnegros:
+  - text: "Oops, te has equivocado. Debido a que los agujeros negros no reflejan ni emiten ningún tipo de radiación, no presenta ningún color."
+  #Sistema Solar
+  utter_tema_sistema_solar:
+  - text: "El Sistema Solar es un sistema de la Vía Láctea que está formado por una estrella central (el Sol), 8 planetas que giran a su alrededor (Mercurio, Venus, la Tierra, Marte, Júpiter, Saturno, Urano y Neptuno), planetas enanos (como Plutón, que hasta 2006 era considerado un planeta), satélites que orbitan alrededor de algunos planetas y otros cuerpos celestes como meteoros, asteroides, cometas, etc."
+  utter_preg_sistemasolar:
+  - text: "¿Qué cuerpo celeste es el centro del sistema solar?"
+  utter_resp_sistemasolar:
+  - text: "Oops, esa no era la respuesta. El Sol es el centro del sistema solar."
+  #Nube de Oort
+  #Cinturon de Kuiper
+  #Cinturon de asteroides
+
+  #Sol
+  utter_tema_sol:
+  - text: "El Sol es una estrella, es el centro del Sistema Solar, los demás cuerpos orbitan a su alrededor. Es la fuente más importante de luz, energía y calor que tenemos y es imprescindible para la vida en la Tierra."
+  utter_preg_sol:
+  - text: "¿El Sol es la estrella más cercana a la Tierra?"
+  utter_resp_sol:
+  - text: "Oops, esa no era la respuesta. El Sol sí es la estrella más cercana a nuestro planeta Tierra."
+  utter_sol_subtemas:
+  - text: "Puedes ampliar tus conocimientos acerca del Sol:"
+    buttons:
+    - title: Eclipse solar
+      payload: /elegir_tema{{"tema":"eclipse solar"}}
+    - title: Viento Solar
+      payload: /elegir_tema{{"tema":"viento solar"}}
+  #Eclipse solar
+  utter_tema_eclipse_solar:
+  - text: "Un eclipse solar se produce cuando la Luna se interpone en el camino de la luz del Sol y proyecta su sombra sobre la Tierra, únicamente puede ocurrir en la fase de luna nueva. Existen varios tipos de eclipse solar: parcial, anular y total. Se dice que es un eclipse parcial cuando la Luna no oculta la luz solar por completo, de modo que desde la Tierra se puede ver una media Luna brillante. Un eclipse solar total se da cuando la Luna cubre el Sol por completo. Sin embargo, si la Luna está un poco más lejos y/o el Sol está un poco más cerca, puede darse un eclipse solar anular, en este caso el tamaño aparente de la Luna no es suficiente para ocultar toda la luz solar, quedando un anillo de luz alrededor de ella."
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Eclipses_Solares.png"
+  utter_preg_eclipsesolar:
+  - text: "¿En qué fase de la Luna se produce un eclipse solar?"
+  utter_resp_eclipsesolar:
+  - text: "Oops, esa no era la respuesta. Un eclipse solar solamente puede ocurrir cuando la Luna se encuentra en su fase nueva."
+  #Viento Solar
+  utter_tema_viento_solar:
+  - text: "El viento solar es una corriente de partículas energéticas liberadas desde la atmósfera superior del Sol (corona solar) que se calienta hasta un punto que la gravedad del Sol no puede retenerla. Su composición es idéntica a la de la corona solar: un 73% de hidrógeno, un 25% de helio y otros elementos. Cuando el viento solar se acerca a un planeta que tiene un campo magnético bien desarrollado (como la Tierra, Júpiter y Saturno),  las partículas son desviadas por la fuerza de Lorentz. Sin embargo, los planetas que tienen una magnetosfera débil o inexistente, están sujetos al agotamiento de su atmósfera por el viento solar. Un ejemplo es Marte, que se piensa que el viento solar ha destruido hasta un tercio de su atmósfera original. En el caso de la Tierra, la magnetosfera hace de escudo frente al viento solar, impidiendo el paso de gran parte de las partículas. Cuando las partículas cargadas impactan con la magnetosfera, se desplazan y se almacenan en ella, cuando esta energía se hace imposible de almacenar se dispara como radiación magnética, provocando unos efectos luminosos llamados auroras polares."
+  utter_preg_vientosolar:
+  - text: "¿Es verdad que el campo magnético de Marte es mayor que el de la Tierra? "
+  utter_resp_vientosolar:
+  - text: "Oops, esa no era la respuesta. Es falso, el campo magnético de Marte es muy débil mientras que el de la Tierra es muy fuerte, sino no habría vida en nuestro planeta."
+  #Planetas del Sistema Solar
+  utter_planetassissolar_subtemas:
+  - text: "Elija un planeta/planeta enano:"
+    buttons:
+    - title: Mercurio
+      payload: /elegir_tema{{"tema":"mercurio"}}
+    - title: Venus
+      payload: /elegir_tema{{"tema":"venus"}}
+    - title: Tierra
+      payload: /elegir_tema{{"tema":"tierra"}}
+    - title: Marte
+      payload: /elegir_tema{{"tema":"marte"}}
+    - title: Júpiter
+      payload: /elegir_tema{{"tema":"jupiter"}}
+    - title: Saturno
+      payload: /elegir_tema{{"tema":"saturno"}}
+    - title: Urano
+      payload: /elegir_tema{{"tema":"urano"}}
+    - title: Neptuno
+      payload: /elegir_tema{{"tema":"neptuno"}}
+    - title: Plutón
+      payload: /elegir_tema{{"tema":"pluton"}}
+  #Mercurio
+  #Venus
+  #Tierra
+  #Marte
+  #Jupiter
+  #Saturno
+  #Urano
+  #Neptuno
+  #Pluton
+  
+  #Luna
+  utter_tema_luna:
+  - text: "La Luna es el único satélite que orbita alrededor de la Tierra y tarda 28 días en dar una vuelta completa a la tierra. Sus movimientos de rotación y traslación están sincronizados, por tanto desde la Tierra siempre vemos la misma cara de la Luna. Sin embargo, la Luna nos muestra aspectos diferentes dependiendo de cómo inciden los rayos del Sol en su superficie. Tiene 4 fases principales: luna nueva, cuarto creciente, luna llena y cuarto menguante."
+  utter_preg_luna:
+  - text: "¿En qué fase se encuentra la Luna en esta imagen?"
+    image: "https://img.blogs.es/anexom/wp-content/uploads/2021/09/fases-de-la-luna.jpg"
+  utter_resp_luna:
+  - text: "Oops, esa no era la respuesta. Cuando la Luna presenta una forma de C, es decreciente, y cuando presenta una forma de D es creciente. Por tanto en esta imagen, la Luna se encuentra en fase decreciente."
+  utter_luna_subtemas:
+  - text: "Puedes ampliar tus conocimientos acerca de la Luna:"
+    buttons:
+    - title: Eclipse lunar
+      payload: /elegir_tema{{"tema":"eclipse lunar"}}
+    - title: Influencia de la Luna en mareas
+      payload: /elegir_tema{{"tema":"luna mareas"}}
+    - title: Diferentes caras de la Luna
+      payload: /elegir_tema{{"tema":"caras luna"}}
+  #Eclipse lunar
+  utter_tema_eclipse_lunar:
+  - text: "Un eclipse lunar es un fenómeno que ocurre cuando la Tierra se interpone entre el Sol y la Luna, de manera que impide la llegada de toda o parte de la luz solar a la Luna. Esto significa que la Luna llena se desvanece porque la sombra de la Tierra la cubre. Existen 3 tipos de eclipses lunares: penumbrales, parciales y totales. Se dice que es eclipse penumbral cuando la Luna pasa por el cono de penumbra de la Tierra (sombra exterior), por lo que se bloquea parte de los rayos solares pero no todos, este fenómeno es sutil y difícil de observar. El eclipse parcial se da cuando una parte de la Luna pasa a la sombra interior de la Tierra. Cuando la Tierra bloquea toda la luz del Sol se denomina eclipse lunar total, en este caso la Luna presenta un color rojizo."
+    image: "https://cimanorte.com/wp-content/uploads/Sin-ti%CC%81tulo-22.jpg"
+  utter_preg_eclipselunar:
+  - text: "¿A qué tipo de eclipse lunar corresponde la siguiente imagen?"
+    image: "https://s1.eestatic.com/2018/07/26/ciencia/eclipses-astronomia-ciencia_325480331_91252147_1706x960.jpg"
+  utter_resp_eclipselunar:
+  - text: "En la imagen la Luna presenta un color rojizo, esto corresponde a un eclipse lunar total."
+  #Mareas y Luna
+  utter_tema_luna_mareas:
+  - text: "Las mareas son movimientos periódicos y alternativos de ascenso y descenso de las aguas de mares y océanos. Estas oscilaciones son originadas por la atracción gravitacional del Sol y de la Luna, que atraen hacia sí el agua de mares y océanos modificando el nivel de estos. A pesar de que la fuerza de atracción del Sol sea mayor, su influencia en las mareas es menor porque se encuentra más lejos de la Tierra. Debido a la cercanía de la Luna, su vínculo con las mareas es mucho más fuerte. Según la altura que llega a alcanzar el agua del mar, las mareas pueden ser de 2 tipos: pleamar o marea alta (momento en que la altura del mar llegue a su nivel más alto) y bajamar o marea baja (cuando la altura del mar llega a su nivel más bajo). También se pueden clasificar según las fases de la Luna: se habla de mareas vivas cuando tenemos Luna Llena y Luna Nueva (mayor amplitud por la alineación del Sol y la Luna), y mareas muertas cuando la Luna está en fase de cuarto menguante y cuarto creciente (menor amplitud porque el Sol y la Luna se encuentran en una posición de manera que se compensan las fuerzas de atracción). También podríamos diferenciar mareas lunares y mareas solares en función de si son provocadas en mayor medida por la Luna o el Sol."
+  utter_preg_lunamareas:
+  - text: "¿De qué tipo de marea hablamos cuando el nivel del mar alcanza su altura máxima?"
+  utter_resp_lunamareas:
+  - text: "Oops, esa no era la respuesta. Cuando la altura del mar llega a su nivel más alto se dice que es marea alta o pleamar."
+  #Caras Luna
+  utter_tema_caras_luna:
+  - text: "Desde la Tierra sólo vemos una cara de la Luna porque su período de rotación es igual al de traslación. La cara visible de la Luna está cubierta de mares lunares, que son como grandes manchas oscuras resultantes de la antigua lava que generó la actividad volcánica en la superficie. Sin embargo, en la cara oculta, estos mares son muy escasos, esta cara está repleta de cráteres y tierras montañosas. ¿Por qué son tan distintas las dos caras de la Luna? Los científicos creen que puede ser debido a un impacto gigante hace miles de millones de años cerca del polo sur de la Luna, que creó una enorme cantidad de calor que hizo que ciertos elementos químicos se depositaran en la cara vista de la luna allanándola con respecto a lo craterosa que es su cara oculta."
+    image: "https://cflvdg.avoz.es/sc/bJnOz7dXzpegCkK4k6gQLkumWX8=/768x/2019/01/07/00121546893092370686588/Foto/luna2.jpg"
+  utter_preg_carasluna:
+  - text: "¿Es verdad que en la cara visible de la Luna no hay casi mares lunares?"
+  utter_resp_carasluna:
+  - text: "Oops, esa no era la respuesta. Los mares lunares son escasos en la cara oculta de la Luna."
+  
+
+
 actions:
+- action_registrar_nombre
 - action_comprobar_respuesta
 - action_nota
-- action_preguntas_principiante
+- action_preguntas_test
 - action_tema_elegido
+#- action_vaciar_tema_resp_correcta
 - utter_has_elegido_nivel
 - utter_menu
 - utter_niveles
-- utter_ok_nombre
 - utter_saludar
+- action_comp_resp_tema
+- action_vaciar_nota
+#- validate_eclipsesolar_preg1_form
+#forms:
+#  eclipsesolar_preg1_form:
+ #   required_slots:
+  #    - tema_resp_correcta
+
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
