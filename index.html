@@ -1,7 +1,18 @@
-<head>
-    <link rel="stylesheet" href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+<html>
+  <head>
+
+    <title>Unny Chatbot</title>
   </head>
-  <body>
+
+
+  <body background = "https://www.emagister.com/blog/wp-content/uploads/2015/06/Astronomia-para-ninos-1920x1098.jpg">
+  <style>
+    /* .rw-conversation-container{size:50px} */
+    .rw-conversation-container .rw-header{background-color: #c39bd3;}
+    .rw-conversation-container .rw-messages-container .rw-message .rw-client{background-color: #c39bd3;}
+    .rw-launcher{background-color: #c39bd3;}
+  </style>
+    <a href="https://forms.gle/qbRZLxXGHo7M9WmQ7">Enlace al cuestionario</a>
     <script>!(function () {
       let e = document.createElement("script"),
         t = document.head || document.getElementsByTagName("head")[0];
@@ -12,9 +23,17 @@
         (e.onload = () => {
           window.WebChat.default(
             {
-              initPayload: '/greet',
-              customData: { language: "en" },
-              socketUrl: "http://localhost:5005",
+              initPayload: '/saludar',
+              customData: { language: "es" },
+              socketUrl: "https://1e3a-79-116-129-56.eu.ngrok.io", //    http://localhost:5005",
+              title: 'Unny bot',
+              subtitle: 'Astronomy chatbot',
+              inputTextFieldHint: "Escriba un mensaje...",
+              showFullScreenButton: true,//botón para opción de pantalla completa
+              //displayUnreadCount:true,//muestra los mensajes no leidos al cerrar widget
+              showMessageDate:true, // muestra la hora en que se ha mandado el mensaje
+
+              // profileAvatar: ""
               // add other props here
             },
             null
@@ -22,6 +41,8 @@
         }),
         t.insertBefore(e, t.firstChild);
     })();
+    localStorage.clear();//it clears all the messages in local storage
     </script>
 
   </body>
+</html>

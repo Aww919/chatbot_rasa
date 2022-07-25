@@ -18,9 +18,9 @@ Respuesta correcta: La Tierra tarda 365 días 5 horas 45 minutos y 46 segundos e
 24 horas
 30 o 31 días, dependiendo del mes
 Respuesta correcta: La Tierra tarda 23 horas 56 minutos y 4 segundos en dar una vuelta sobre sí misma, aproximadamente 24 horas.
-¿Cuál es el planeta más pequeño del Sistema Solar?
-Venus
-Marte
+Elija la afirmación correcta:
+Venus es el planeta más cercano al Sol
+Marte es el planeta más caliente
 Ninguna de las opciones
 Respuesta correcta: ninguna de la opciones, el planeta más pequeño del Sistema Solar es el Mercurio.
 ¿En qué galaxia se encuentra el Sistema Solar?
@@ -54,9 +54,9 @@ Respuesta correcta: Marte tiene 2 satélites, llamados Fobos y Deimos.
 2d 1h 16min
 Respuesta correcta: 1d 0h 37min
 ¿Los agujeros negros son los objetos más simples del universo?
-Verdadero
-Falso, es lo más complejo
-Falso, no es lo más complejo pero de simple no tiene nada
+Es verdadero
+Es falso, es lo más complejo
+Es falso, no es lo más complejo pero de simple no tiene nada
 Respuesta correcta: Verdadero, aunque no lo parezca, un agujero negro representa el objeto más simple del universo, solo está gobernado por una única fuerza: la gravedad.
 Se cree que podemos encontrar un agujero negro en...
 El centro de todas las galaxias
@@ -83,11 +83,11 @@ Respuesta correcta: 88 días
 30h 40min
 9h 50min
 Respuesta correcta: Júpiter tiene una velocidad de rotación muy elevada, tarda 9 horas y 50 minutos en dar una vuelta sobre sí mismo.
-Heliocéntrico significa que el centro es...
-El Sol
-La Tierra
-El Sistema Solar
-Respuesta correcta: el Sol
+¿Qué significa heliocéntrico?
+Que el centro es el Sol
+Que el centro es la Tierra
+Que el centro es la Luna
+Respuesta correcta: heliocéntrico significa que el centro es el Sol.
 ¿Qué dos planetas del Sistema Solar no tienen satélites que orbitan a su alrededor?
 Mercurio y Marte
 Mercurio y Venus
@@ -98,11 +98,11 @@ Cosmología
 Tomografía
 Criología
 Respuesta correcta: cosmología
-¿Cuáles de los siguientes cuerpos celestes influye en las mareas del océano?
-Tierra
-Sol
-Luna
-Respuesta correcta: Luna
+Elija la opción correcta para las mareas de los océanos:
+Júpiter es el que más influye en las mareas por su gran masa
+El Sol influye más en las mareas que la Luna
+La Luna influye más en las mareas que el Sol
+Respuesta correcta: A pesar de que el Sol tiene mayor fuerza de atracción, la Luna influye más en las mareas por su cercanía.
 Cuando un cuerpo celeste gira en su propio eje, se llama movimiento de...
 Rotación
 Traslación
@@ -114,10 +114,10 @@ Satélites
 Estrellas
 Respuesta correcta: estrellas, por que en su interior se producen reacciones que desprenden mucha energía calorífica y luminosa. Un ejemplo de estrella es el Sol.
 Cuanto más rojo es el color de una estrella, la temperatura de su superficie es más...
-alta
-baja
-no depende del color
-Respuesta correcta: baja
+Alta
+Baja
+No depende del color
+Respuesta correcta: Baja
 ¿Qué color de estrella es la de mayor temperatura?
 Rojo
 Blanco
@@ -128,10 +128,10 @@ Rojo
 Blanco
 Azul
 Respuesta correcta: rojo
-¿Cuáles de los siguientes cuerpos celestes es una estrella?
-La Luna
-El Sol
-Plutón
+Elija la opción correcta:
+La Luna es una estrella
+El Sol es una estrella
+Plutón es el noveno planeta del Sistema Solar
 Respuesta correcta: El Sol es una estrella, la Luna es un satélite de la Tierra y Plutón es un planeta enano.
 ¿Qué cuerpo astronómico a veces recibe el nombre de \"bola de nieve sucia\"?
 Cometa

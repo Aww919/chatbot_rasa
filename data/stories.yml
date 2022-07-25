@@ -10,38 +10,102 @@ stories:
   - action: action_registrar_nombre
   - action: utter_menu
 
-- story: usuario elige aprender, vaciar las notas
+- story: Decirle adiós al usuario si se despide
+  steps:
+  - intent: despedirse
+  - action: utter_despedirse
+
+- story: mostrar menu
+  steps:
+  - intent: menu
+  - action: utter_menu
+
+- story: Prensentarme si el usuario me pregunta quién soy
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: Mostrar las instrucciones cuando el usuario pide ayuda
+  steps:
+  - intent: pedir_ayuda
+  - action: utter_instrucciones
+
+- story: usuario elige ninguno en temario
   steps:
   - intent: aprender
   - action: utter_temario
+  - intent: negar
+  - action: utter_menu
 
+# Tema no definido
 - story: elige tema no definido
   steps:
   - intent: elegir_tema
+  - slot_was_set:
+    - tema: None
   - action: action_tema_elegido
   - slot_was_set:
     - tema: None
   - action: utter_temario
 
 # Tema Universo
-- story: tema universo -> subtemas
+- story: tema universo, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: universo
   - slot_was_set:
     - tema: universo
   - action: action_tema_elegido
   - slot_was_set:
     - tema: universo
+  - action: utter_preg_temario
+  - intent: negar
   - action: utter_universo_subtemas
+  - intent: negar
+  - action: utter_temario
+
+- story: tema universo, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: universo
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: universo
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_universo
+  - or:
+    - intent: afirmar
+    - intent: verdadero
+  - action: utter_respuesta_correcta
+  - action: utter_universo_subtemas
+  - intent: negar
+  - action: utter_temario
+
+- story: tema universo, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: universo
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: universo
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_universo
+  - or:
+    - intent: negar
+    - intent: falso
+    - intent: desconoce
+  - action: utter_resp_universo
+  - action: utter_universo_subtemas
+  - intent: negar
+  - action: utter_temario
 
 # Tema Estrellas
 - story: tema estrellas, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: estrellas
   - slot_was_set:
     - tema: estrellas
   - action: action_tema_elegido
@@ -49,13 +113,13 @@ stories:
     - tema: estrellas
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_estrellas_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
 
 - story: tema estrellas, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: estrellas
   - slot_was_set:
     - tema: estrellas
   - action: action_tema_elegido
@@ -68,13 +132,13 @@ stories:
     - intent: afirmar
     - intent: verdadero
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_estrellas_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
 
 - story: tema estrellas, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: estrellas
   - slot_was_set:
     - tema: estrellas
   - action: action_tema_elegido
@@ -88,15 +152,15 @@ stories:
     - intent: falso
     - intent: desconoce
   - action: utter_resp_estrellas
-  - action: utter_temario
-
+  - action: utter_estrellas_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
+  
 
 # Tema Ciclo vida Estrellas
 - story: tema estrellas, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: ciclo vida estrellas
   - slot_was_set:
     - tema: ciclo vida estrellas
   - action: action_tema_elegido
@@ -104,13 +168,11 @@ stories:
     - tema: ciclo vida estrellas
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
-- story: tema ciclo vida estrellas, ¿preg? -> SI -> correcto
+- story: tema ciclo vida estrellas, preg -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: ciclo vida estrellas
   - slot_was_set:
     - tema: ciclo vida estrellas
   - action: action_tema_elegido
@@ -123,13 +185,11 @@ stories:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema ciclo vida estrellas, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: ciclo vida estrellas
   - slot_was_set:
     - tema: ciclo vida estrellas
   - action: action_tema_elegido
@@ -143,14 +203,13 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_vidaestrellas
-  - action: utter_temario
+  - action: utter_universo_subtemas
+
 
 # Tema Planetas
 - story: tema planetas, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: planetas
   - slot_was_set:
     - tema: planetas
   - action: action_tema_elegido
@@ -158,13 +217,11 @@ stories:
     - tema: planetas
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema planetas, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: planetas
   - slot_was_set:
     - tema: planetas
   - action: action_tema_elegido
@@ -177,13 +234,11 @@ stories:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema planetas, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: planetas
   - slot_was_set:
     - tema: planetas
   - action: action_tema_elegido
@@ -197,7 +252,7 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_planetas
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 # Tema Planetas Enanos
 - story: tema planetas enanos, ¿preg? -> NO
@@ -212,7 +267,7 @@ stories:
     - tema: planetas enanos
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema planetas enanos, ¿preg? -> SI -> correcto
   steps:
@@ -231,7 +286,7 @@ stories:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema planetas enanos, ¿preg? -> SI -> incorrecto
   steps:
@@ -251,27 +306,69 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_planetasenanos
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 # Tema Satélites Naturales
 - story: tema satelites naturales, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: satelites naturales
   - slot_was_set:
     - tema: satelites naturales
   - action: action_tema_elegido
   - slot_was_set:
     - tema: satelites naturales
+  - action: utter_preg_temario
+  - intent: negar
   - action: utter_satelitesnaturales_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
+
+
+- story: tema satelites naturales, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: satelites naturales
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: satelites naturales
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_satelitesnaturales
+  - or:
+    - intent: falso
+    - intent: negar
+  - action: utter_respuesta_correcta
+  - action: utter_satelitesnaturales_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
+
+
+- story: tema satelites naturales, ¿preg? -> NO -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: satelites naturales
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: satelites naturales
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_satelitesnaturales
+  - or:
+    - intent: verdadero
+    - intent: afirmar
+    - intent: desconoce
+  - action: utter_resp_satelitesnaturales
+  - action: utter_satelitesnaturales_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
+
 
 ## Tema Tipos de satélites naturales
 - story: tema tipos satelites naturales, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: tipos satelites naturales
   - slot_was_set:
     - tema: tipos satelites naturales
   - action: action_tema_elegido
@@ -279,13 +376,11 @@ stories:
     - tema: tipos satelites naturales
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema tipos satelites naturales, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: tipos satelites naturales
   - slot_was_set:
     - tema: tipos satelites naturales
   - action: action_tema_elegido
@@ -296,7 +391,7 @@ stories:
   - action: utter_preg_tipos_satelitesnaturales
   - intent: satelite_natural_irregular
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema tipos satelites naturales, ¿preg? -> SI -> incorrecto
   steps:
@@ -315,14 +410,12 @@ stories:
     - intent: satelite_natural_regular
     - intent: desconoce
   - action: utter_resp_tipos_satelitesnaturales
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 ## Tema Satelites naturales del sistema solar
 - story: tema satelites sistema solar, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: satelites sistema solar
   - slot_was_set:
     - tema: satelites sistema solar
   - action: action_tema_elegido
@@ -330,13 +423,11 @@ stories:
     - tema: satelites sistema solar
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema satelites sistema solar, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: satelites sistema solar
   - slot_was_set:
     - tema: satelites sistema solar
   - action: action_tema_elegido
@@ -349,13 +440,11 @@ stories:
     - intent: afirmar
     - intent: verdadero
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema satelites sistema solar, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: satelites sistema solar
   - slot_was_set:
     - tema: satelites sistema solar
   - action: action_tema_elegido
@@ -369,7 +458,7 @@ stories:
     - intent: falso
     - intent: desconoce
   - action: utter_resp_satelitesnaturales_sissolar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 
 # Tema Asteroides
@@ -385,7 +474,7 @@ stories:
     - tema: asteroides
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema asteroides, ¿preg? -> SI -> correcto
   steps:
@@ -404,7 +493,7 @@ stories:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema asteroides, ¿preg? -> SI -> incorrecto
   steps:
@@ -424,7 +513,7 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_asteroides
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 # Tema Cometas
 - story: tema cometas, ¿preg? -> NO
@@ -439,7 +528,7 @@ stories:
     - tema: cometas
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema cometas, ¿preg? -> SI -> correcto
   steps:
@@ -456,7 +545,7 @@ stories:
   - action: utter_preg_cometas
   - intent: cola_plasma
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema cometas, ¿preg? -> SI -> incorrecto
   steps:
@@ -475,7 +564,7 @@ stories:
     - intent: cola_polvo
     - intent: desconoce
   - action: utter_resp_cometas
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 # Tema Meteoroides
 - story: tema meteoroides, ¿preg? -> NO
@@ -490,7 +579,7 @@ stories:
     - tema: meteoroides
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema meteoroides, ¿preg? -> SI -> correcto
   steps:
@@ -509,7 +598,7 @@ stories:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema meteoroides, ¿preg? -> SI -> incorrecto
   steps:
@@ -529,7 +618,7 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_meteoroides
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 #Tema Agujeros negros
 - story: tema agujeros negros, ¿preg? -> NO
@@ -544,7 +633,7 @@ stories:
     - tema: agujeros negros
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema agujeros negros, ¿preg? -> SI -> correcto
   steps:
@@ -563,7 +652,7 @@ stories:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 - story: tema agujeros negros, ¿preg? -> SI -> incorrecto
   steps:
@@ -583,14 +672,12 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_agujerosnegros
-  - action: utter_temario
+  - action: utter_universo_subtemas
 
 # Tema Sistema solar
 - story: tema sistema solar, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: sistema solar
   - slot_was_set:
     - tema: sistema solar
   - action: action_tema_elegido
@@ -600,30 +687,9 @@ stories:
   - intent: negar
   - action: utter_temario
 
-- story: tema sistema solar, ¿preg? -> SI -> correcto
-  steps:
-  - intent: elegir_tema
-    entities:
-    - tema: sistema solar
-  - slot_was_set:
-    - tema: sistema solar
-  - action: action_tema_elegido
-  - slot_was_set:
-    - tema: sistema solar
-  - action: utter_preg_temario
-  - intent: afirmar
-  - action: utter_preg_sistemasolar
-  - intent: nombrar_estrellas
-    entities:
-    - estrella: "sol"
-  - action: utter_respuesta_correcta
-  - action: utter_temario
-
 - story: tema sistema solar, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: sistema solar
   - slot_was_set:
     - tema: sistema solar
   - action: action_tema_elegido
@@ -633,20 +699,32 @@ stories:
   - intent: afirmar
   - action: utter_preg_sistemasolar
   - or:
-    - intent: nombrar_planetas
-    - intent: nombrar_satelites_naturales
+    - intent: responder
+    - intent: nlu_fallback
     - intent: desconoce
   - action: utter_resp_sistemasolar
   - action: utter_temario
 
+- story: tema sistema solar, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: sistema solar
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: sistema solar
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_sistemasolar
+  - intent: sol
+  - action: utter_respuesta_correcta
+  - action: utter_temario
 
 
 # Tema Sol
 - story: tema sol, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: sol
   - slot_was_set:
     - tema: sol
   - action: action_tema_elegido
@@ -655,12 +733,12 @@ stories:
   - action: utter_preg_temario
   - intent: negar
   - action: utter_sol_subtemas
+  - intent: negar
+  - action: utter_temario
 
 - story: tema sol, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: sol
   - slot_was_set:
     - tema: sol
   - action: action_tema_elegido
@@ -674,12 +752,12 @@ stories:
     - intent: verdadero
   - action: utter_respuesta_correcta
   - action: utter_sol_subtemas
+  - intent: negar
+  - action: utter_temario
 
 - story: tema sol, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: sol
   - slot_was_set:
     - tema: sol
   - action: action_tema_elegido
@@ -694,6 +772,8 @@ stories:
     - intent: desconoce
   - action: utter_resp_sol
   - action: utter_sol_subtemas
+  - intent: negar
+  - action: utter_temario
 
 # Tema Eclipse solar
 - story: tema eclipse solar, ¿preg? -> NO
@@ -803,24 +883,441 @@ stories:
   - action: utter_temario
 
 # Tema Planetas del sistema Solar
-- story: tema planetas del sistema solar -> subtemas
+- story: tema planetas del sistema solar, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: planetas sistema solar
   - slot_was_set:
     - tema: planetas sistema solar
   - action: action_tema_elegido
   - slot_was_set:
     - tema: planetas sistema solar
+  - action: utter_preg_temario
+  - intent: negar
   - action: utter_planetassissolar_subtemas
+  - intent: negar
+  - action: utter_temario
+
+- story: tema planetas del sistema solar, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: planetas sistema solar
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: planetas sistema solar
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_planetassissolar
+  - or:
+    - intent: saturno
+    - intent: desconoce
+  - action: utter_resp_planetassissolar
+  - action: utter_planetassissolar_subtemas
+  - intent: negar
+  - action: utter_temario
+
+- story: tema planetas del sistema solar, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: planetas sistema solar
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: planetas sistema solar
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_planetassissolar
+  - intent: jupiter
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+  - intent: negar
+  - action: utter_temario
+
+
+
+# Tema Mercurio
+- story: tema mercurio, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: mercurio
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: mercurio
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema mercurio, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: mercurio
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: mercurio
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_mercurio
+  - intent: atmosfera_mercurio
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema mercurio, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: mercurio
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: mercurio
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_mercurio
+  - or:
+    - intent: nlu_fallback
+    - intent: desconoce
+  - action: utter_resp_mercurio
+  - action: utter_planetassissolar_subtemas
+
+# Tema Venus
+- story: tema venus, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: venus
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: venus
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema venus, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: venus
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: venus
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_venus
+  - or:
+    - intent: verdadero
+    - intent: afirmar
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema venus, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: venus
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: venus
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_venus
+  - or:
+    - intent: falso
+    - intent: negar
+    - intent: desconoce
+  - action: utter_resp_venus
+  - action: utter_planetassissolar_subtemas
+
+# Tema Tierra
+- story: tema tierra, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: tierra
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: tierra
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema tierra, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: tierra
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: tierra
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_tierra
+  - intent: dia_bisiesto
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema tierra, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: tierra
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: tierra
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_tierra
+  - or:
+    - intent: nlu_fallback
+    - intent: desconoce
+  - action: utter_resp_tierra
+  - action: utter_planetassissolar_subtemas
+
+# Tema Marte
+- story: tema marte, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: marte
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: marte
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema marte, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: marte
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: marte
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_marte
+  - or:
+    - intent: negar
+    - intent: falso
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema marte, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: marte
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: marte
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_marte
+  - or:
+    - intent: afirmar
+    - intent: verdadero
+    - intent: desconoce
+  - action: utter_resp_marte
+  - action: utter_planetassissolar_subtemas
+
+# Tema Júpiter
+- story: tema jupiter, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: jupiter
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: jupiter
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema jupiter, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: jupiter
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: jupiter
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_jupiter
+  - or:
+    - intent: afirmar
+    - intent: verdadero
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema jupiter, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: jupiter
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: jupiter
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_jupiter
+  - or:
+    - intent: negar
+    - intent: falso
+    - intent: desconoce
+  - action: utter_resp_jupiter
+  - action: utter_planetassissolar_subtemas
+
+
+# Tema Saturno
+- story: tema saturno, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: saturno
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: saturno
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema saturno, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: saturno
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: saturno
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_saturno
+  - or:
+    - intent: afirmar
+    - intent: verdadero
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema saturno, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: saturno
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: saturno
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_saturno
+  - or:
+    - intent: negar
+    - intent: falso
+    - intent: desconoce
+  - action: utter_resp_saturno
+  - action: utter_planetassissolar_subtemas
+
+
+# Tema Urano
+- story: tema urano, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: urano
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: urano
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema urano, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: urano
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: urano
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_urano
+  - intent: metano_urano
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema urano, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: urano
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: urano
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_urano
+  - or:
+    - intent: nlu_fallback
+    - intent: desconoce
+  - action: utter_resp_urano
+  - action: utter_planetassissolar_subtemas
+
+
+# Tema Neptuno
+- story: tema neptuno, ¿preg? -> NO
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: neptuno
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: neptuno
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_planetassissolar_subtemas
+
+- story: tema neptuno, ¿preg? -> SI -> correcto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: neptuno
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: neptuno
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_neptuno
+  - or:
+    - intent: falso
+    - intent: negar
+  - action: utter_respuesta_correcta
+  - action: utter_planetassissolar_subtemas
+
+- story: tema neptuno, ¿preg? -> SI -> incorrecto
+  steps:
+  - intent: elegir_tema
+  - slot_was_set:
+    - tema: neptuno
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: neptuno
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_neptuno
+  - or:
+    - intent: afirmar
+    - intent: verdadero
+    - intent: desconoce
+  - action: utter_resp_neptuno
+  - action: utter_planetassissolar_subtemas
+
 
 # Tema Luna
 - story: tema luna, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: luna
   - slot_was_set:
     - tema: luna
   - action: action_tema_elegido
@@ -829,12 +1326,12 @@ stories:
   - action: utter_preg_temario
   - intent: negar
   - action: utter_luna_subtemas
+  - intent: negar
+  - action: utter_temario
 
 - story: tema luna, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: luna
   - slot_was_set:
     - tema: luna
   - action: action_tema_elegido
@@ -846,12 +1343,12 @@ stories:
   - intent: luna_fase_decreciente
   - action: utter_respuesta_correcta
   - action: utter_luna_subtemas
+  - intent: negar
+  - action: utter_temario
 
 - story: tema luna, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: luna
   - slot_was_set:
     - tema: luna
   - action: action_tema_elegido
@@ -867,13 +1364,14 @@ stories:
     - intent: desconoce
   - action: utter_resp_luna
   - action: utter_luna_subtemas
+  - intent: negar
+  - action: utter_temario
+
 
 #Tema Eclipse lunar
 - story: tema eclipse lunar, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: eclipse lunar
   - slot_was_set:
     - tema: eclipse lunar
   - action: action_tema_elegido
@@ -881,13 +1379,11 @@ stories:
     - tema: eclipse lunar
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 - story: tema eclipse lunar, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: eclipse lunar
   - slot_was_set:
     - tema: eclipse lunar
   - action: action_tema_elegido
@@ -897,13 +1393,11 @@ stories:
   - intent: afirmar
   - intent: eclipse_lunar_total
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 - story: tema eclipse lunar, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: eclipse lunar
   - slot_was_set:
     - tema: eclipse lunar
   - action: action_tema_elegido
@@ -917,14 +1411,12 @@ stories:
     - intent: eclipse_lunar_parcial
     - intent: desconoce
   - action: utter_resp_eclipselunar
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 #Tema Luna Mareas
 - story: tema luna mareas, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: luna mareas
   - slot_was_set:
     - tema: luna mareas
   - action: action_tema_elegido
@@ -932,13 +1424,11 @@ stories:
     - tema: luna mareas
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 - story: tema luna mareas, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: luna mareas
   - slot_was_set:
     - tema: luna mareas
   - action: action_tema_elegido
@@ -949,13 +1439,11 @@ stories:
   - action: utter_preg_lunamareas
   - intent: marea_alta
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 - story: tema luna mareas, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: luna mareas
   - slot_was_set:
     - tema: luna mareas
   - action: action_tema_elegido
@@ -972,14 +1460,13 @@ stories:
     - intent: marea_solar
     - intent: desconoce
   - action: utter_resp_lunamareas
-  - action: utter_temario
+  - action: utter_luna_subtemas
+
 
 #Tema caras de la Luna
 - story: tema caras luna, ¿preg? -> NO
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: caras luna
   - slot_was_set:
     - tema: caras luna
   - action: action_tema_elegido
@@ -987,32 +1474,27 @@ stories:
     - tema: caras luna
   - action: utter_preg_temario
   - intent: negar
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 - story: tema caras luna, ¿preg? -> SI -> correcto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: caras luna
   - slot_was_set:
     - tema: caras luna
   - action: action_tema_elegido
   - slot_was_set:
     - tema: caras luna
-  - action: utter_tema_caras_luna
   - action: utter_preg_temario
   - intent: afirmar
   - or:
     - intent: negar
     - intent: falso
   - action: utter_respuesta_correcta
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 - story: tema caras luna, ¿preg? -> SI -> incorrecto
   steps:
   - intent: elegir_tema
-    entities:
-    - tema: caras luna
   - slot_was_set:
     - tema: caras luna
   - action: action_tema_elegido
@@ -1026,7 +1508,7 @@ stories:
     - intent: verdadero
     - intent: desconoce
   - action: utter_resp_carasluna
-  - action: utter_temario
+  - action: utter_luna_subtemas
 
 
 
@@ -1034,47 +1516,134 @@ stories:
 # RESPONDER PREGUNTAS TEST
 - story: preguntas test path 1
   steps:
+  - intent: preg_test
+  - action: utter_niveles
+  - intent: elegir_nivel
+  - action: action_vaciar_nota
+  - slot_was_set:
+    - preg_completas: None 
+  - action: utter_has_elegido_nivel
+  - action: action_preguntas_test #1
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preg_completas: incompleto 
+  - action: action_preguntas_test  #2
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test  #3
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test  #4
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test  #5
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - preg_completas: completo
+  - action: action_nota
+  - action: action_vaciar_nota
+  - action: utter_menu
+
+# - story: preguntas test path 2, pregs no completadas
+#   steps:
+#   - action: action_comprobar_respuesta
+  
+
+# - story: preguntas test path 2, pregs completadas
+#   steps:
+#   - action: action_comprobar_respuesta
+#   - slot_was_set:
+#     - preg_completas: completo
+#   - action: action_nota
+#   - action: action_vaciar_nota
+#   - slot_was_set:
+#     - preg_completas: None
+#   - action: utter_menu
+
+
+- story: interactive_story_1
+  steps:
   - intent: saludar
   - action: utter_saludar
   - intent: informar_nombre
+    entities:
+    - nombre: beatriz
+  - slot_was_set:
+    - nombre: beatriz
   - action: action_registrar_nombre
+  - slot_was_set:
+    - nombre: beatriz
   - action: utter_menu
   - intent: preg_test
   - action: utter_niveles
   - intent: elegir_nivel
-  - action: action_vaciar_nota
+    entities:
+    - nivel: principiante
   - slot_was_set:
-    - n_pregunta: 0
-  - slot_was_set:
-    - preguntas_seguidas: 0
-  - slot_was_set:
-    - n_correctos: 0
-  - action: utter_has_elegido_nivel
+    - nivel: principiante
   - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 25
   - slot_was_set:
     - preguntas_seguidas: 1
   - intent: responder
   - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 1
+  - slot_was_set:
+    - preg_completas: incompleto
   - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 7
   - slot_was_set:
     - preguntas_seguidas: 2
   - intent: responder
   - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 1
+  - slot_was_set:
+    - preg_completas: incompleto
   - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 1
   - slot_was_set:
     - preguntas_seguidas: 3
   - intent: responder
   - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 2
+  - slot_was_set:
+    - preg_completas: incompleto
   - action: action_preguntas_test
   - slot_was_set:
+    - n_pregunta: 29
+  - slot_was_set:
     - preguntas_seguidas: 4
-  - intent: responder
+  - intent: desconoce
   - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 2
+  - slot_was_set:
+    - preg_completas: incompleto
   - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 5
   - slot_was_set:
     - preguntas_seguidas: 5
   - intent: responder
   - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 3
+  - slot_was_set:
+    - preg_completas: completo
   - action: action_nota
   - action: action_vaciar_nota
   - slot_was_set:
@@ -1083,99 +1652,6 @@ stories:
     - preguntas_seguidas: 0
   - slot_was_set:
     - n_correctos: 0
+  - slot_was_set:
+    - preg_completas: null
   - action: utter_menu
-
-- story: preguntas test path 2
-  steps:
-  - intent: preg_test
-  - action: utter_niveles
-  - intent: elegir_nivel
-  - action: action_vaciar_nota
-  - slot_was_set:
-    - n_pregunta: 0
-  - slot_was_set:
-    - preguntas_seguidas: 0
-  - slot_was_set:
-    - n_correctos: 0
-  - action: utter_has_elegido_nivel
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 1
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 2
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 3
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 4
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 5
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_nota
-  - action: action_vaciar_nota
-  - slot_was_set:
-    - n_pregunta: 0
-  - slot_was_set:
-    - preguntas_seguidas: 0
-  - slot_was_set:
-    - n_correctos: 0
-  - action: utter_menu
-
-- story: preguntas test path 3
-  steps:
-  - intent: elegir_nivel
-  - action: action_vaciar_nota
-  - slot_was_set:
-    - n_pregunta: 0
-  - slot_was_set:
-    - preguntas_seguidas: 0
-  - slot_was_set:
-    - n_correctos: 0
-  - action: utter_has_elegido_nivel
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 1
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 2
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 3
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 4
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_preguntas_test
-  - slot_was_set:
-    - preguntas_seguidas: 5
-  - intent: responder
-  - action: action_comprobar_respuesta
-  - action: action_nota
-  - action: action_vaciar_nota
-  - slot_was_set:
-    - n_pregunta: 0
-  - slot_was_set:
-    - preguntas_seguidas: 0
-  - slot_was_set:
-    - n_correctos: 0
-  - action: utter_menu
-

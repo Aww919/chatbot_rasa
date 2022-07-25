@@ -6,78 +6,109 @@ nlu:
     - hola
     - hello
     - hi
+    - buenas
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - hola que hay
+    - hola [Unny](nombre)
+    - hola [unny](nombre)
     - hello there
     - good morning
     - good evening
-    - moin
     - hey there
     - let's go
     - hey dude
     - goodmorning
     - goodevening
     - good afternoon
-    - buenas
-    - buenos días
-    - buenas tardes
-    - buenas noches
+    - que hay
+    - que pasa
+    - holi
+    - uola
+    
+    
 
 - intent: despedirse
   examples: |
     - Adiós
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - adios
+    - adios [unny](nombre)
+    - chao
+    - nos vemos
+    - ta luego
+    - hasta pronto
+    - hasta la próxima
     - hasta luego
     - hasta mañana
+    - me voy
+    - bye [unny](nombre)
+    - bye
+    - goodbye
     - byebye
-    - hasta la próxima
-
+    - ciao
+  
+    
 - intent: afirmar
   examples: |
+    - si
+    - sí
+    - Sí
+    - Si
+    - SI
+    - s
+    - ok
+    - okey
+    - claro que si
+    - claro
+    - correcto
+    - bien
+    - por supuesto
+    - vale
     - yes
     - y
     - indeed
+    - ofc
     - of course
     - that sounds good
     - correct
-    - sí
-    - correcto
-    - bien
-    - ok
-    - okey
-    - vale
-    - si
+
+    
 - intent: verdadero
   examples: |
     - verdadero
     - verdad
     - es verdad
     - true
+    - Verdadero
+    - v
+    - V
 - intent: negar
   examples: |
     - no
+    - No
+    - NO
     - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - nunca
     - no quiero
     - creo que no
     - la verdad es que no
+    - no creo
+    - nada
+    - never
+    - ninguno
+    - Ninguno
+
+    
 - intent: falso
   examples: |
-    - falso
+    - Falso
     - falso
     - no es verdad
     - false
     - es mentira
+    - F
+    - f
 - intent: desconoce
   examples: |
     - no lo se
@@ -94,6 +125,35 @@ nlu:
     - quiero ver el menu
     - menu principal
 
+- intent: pedir_ayuda
+  examples: |
+    - necesito ayuda
+    - ayuda
+    - que puedo hacer?
+    - que hay que hacer?
+    - que tengo que hacer
+    - instrucciones
+    - cuales son las instrucciones
+    - me ayudas?
+    - me guias?
+    - guia
+    - guia de usuario
+    - ayuda please
+    - ayuda por favor
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - quien eres?
+    - eres humano?
+    - eres un bot?
+    - con quien estoy hablando?
+    - estoy hablando con un bot?
+    - estoy hablando con un humano?
+    - como te llamas
 
 - intent: informar_nombre
   examples: |
@@ -172,21 +232,6 @@ nlu:
     - [iker](nombre)
     - [marcelo](nombre)
     - [cristiano](nombre)
-    
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-    - quien eres?
-    - eres humano?
-    - eres un bot?
-    - con quien estoy hablando?
-    - estoy hablando con un bot?
-    - estoy hablando con un humano?
-    - como te llamas
 
 - intent: aprender
   examples: |
@@ -194,6 +239,11 @@ nlu:
     - quiero seguir aprendiendo
     - temario
     - temas
+    - que temas hay
+    - cuales son los temas
+    - muestrame los temas
+    - que puedo aprender
+    - aprender
 
 - intent: preg_test
   examples: |
@@ -203,12 +253,23 @@ nlu:
     - preguntas test
     - hazme una pregunta test
     - preguntas aleatorias
+    - responder preguntas test
+    - preg_test
+    - preg test
 
+  
 - intent: elegir_tema
   examples: |
     - tema [universo](tema)
+    - quiero aprender sobre el [universo](tema)
+    - elijo tema [universo](tema)
+    - quiero estudiar [universo](tema)
     - tema [estrellas](tema)
+    - quiero aprender tema [estrellas](tema)
+    - elijo tema [estrellas](tema)
     - tema [ciclo vida estrellas](tema)
+    - quiero aprender tema [ciclo vida estrellas](tema)
+    - elijo tema [ciclo vida estrellas](tema)
     - tema [planetas](tema)
     - tema [planetas enanos](tema)
     - tema [satelites naturales](tema)
@@ -237,22 +298,50 @@ nlu:
     - tema [urano](tema)
     - tema [neptuno](tema)
     - tema [pluton](tema)
-    
 
-    
+- intent: sol
+  examples: |
+    - el sol
+    - sol
+    - la estrella sol
+
+- intent: jupiter
+  examples: |
+    - jupiter
+    - el planeta jupiter
+    - Júpiter
+    - el planeta Júpiter
+
+- intent: saturno
+  examples: |
+    - saturno
+    - el planeta saturno
+    - Saturno
+    - el planeta saturno
 
 - intent: elegir_nivel
   examples: |
     - [principiante](nivel)
     - [avanzado](nivel)
-    - nivel [avanzado](nivel)
-    - nivel [principiante](nivel)
-- intent: pedir_ayuda
+    - Nivel [Avanzado](nivel)
+    - Nivel [Principiante](nivel)
+    - elijo nivel [principiante](nivel)
+    - elijo nivel [avanzado](nivel)
+
+
+
+- intent: satelite_natural_irregular
   examples: |
-    - necesito ayuda
-    - ayuda
-    - que puedo hacer?
-    - que hay que hacer?
+    - satelite natural irregular
+    - satelite irregular
+    - irregular
+
+- intent: satelite_natural_regular
+  examples: |
+    - satelite natural regular
+    - satelite regular
+    - regular
+
 - intent: cola_plasma
   examples: |
     - cola de plasma
@@ -268,23 +357,49 @@ nlu:
     - cola de polvo
     - de polvo
 
-- intent: satelite_natural_irregular
+- intent: atmosfera_mercurio
   examples: |
-    - satelite natural irregular
-    - satelite irregular
-    - irregular
+    - porque su atmosfera es despreciable
+    - porque no tiene atmosfera
+    - porque tiene una atmosfera inconsiderable
+    - porque no esta protegida por su atmosfera
+    - porque esta desprotegida
+    - porque su atmosfera es muy pequeña
+    - su atmosfera es despreciable
+    - no tiene atmosfera
+    - tiene una atmosfera inconsiderable
+    - no esta protegida por su atmósfera
+    - esta desprotegida
+    - su atmosfera es muy pequeña
 
-- intent: satelite_natural_regular
+- intent: dia_bisiesto
   examples: |
-    - satelite natural regular
-    - satelite regular
-    - regular
+    - añadiendo un dia de mas cada cuatro años
+    - agregando un dia de mas cada cuatro años
+    - con un año bisiesto cada cuatro años
+    - año bisiesto
+    - dia bisiesto
+    - con un dia bisiesto cada cuatro años
+    - un dia de mas cada cuatro años
+    - un dia de mas en año bisiesto
 
-
-- intent: via_lactea
+- intent: metano_urano
   examples: |
-    - via lactea
-    - en la via lactea
+    - al metano
+    - metano
+    - porque tiene metano
+    - a su composicion
+    - a su composicion quimica
+    - a sus materiales
+    - a su porcentaje de metano
+    - a su cantidad de metano
+    - porque tiene 1.99% de metano
+    - porque tiene mucho metano
+    - tiene mucho metano
+    - a que tiene mucho metano
+    - tiene bastante metano
+    - es debido al metano
+
 - intent: luna_fase_decreciente
   examples: |
     - decreciente
@@ -317,26 +432,6 @@ nlu:
     - luna llena
     - fase luna llena
     - luna fase llena
-- intent: mercurio
-  examples: |
-    - mercurio
-    - es Mercurio
-    - el planeta mercurio
-- intent: venus
-  examples: |
-    - venus
-    - es venus
-    - el planeta venus
-- intent: tierra
-  examples: |
-    - tierra
-    - es tierra
-    - el planeta tierra
-- intent: marte
-  examples: |
-    - marte
-    - es marte
-    - el planeta marte
 - intent: eclipse_lunar_total
   examples: |
     - eclipse lunar total
@@ -378,87 +473,166 @@ nlu:
   examples: |
     - marea solar
     - solar
+
 - intent: responder
   examples: |
     - 8 planetas
+    - 9 planetas
+    - 7 planetas
+    - 30%
+    - 50%
     - 70%
     - 365 días
     - 24 horas
-    - Porque sus movimientos de rotación y traslación están sincronizados
-    - 300.000 km/s
-    - Piedras
-    - Es una etapa de la vida de una estrella
+    - 30 o 31 días, dependiendo del mes
+    - Venus es el planeta más cercano al Sol
+    - Marte es el planeta más caliente
     - Ninguna de las opciones
-    - Verdadero
-    - Vía Láctea
-    - Metano
+    - [Andrómeda](galaxia)
+    - [Vía Láctea](galaxia)
+    - Ninguna de las anteriores
     - 247 años
+    - 192 años
+    - 200 años
     - Se está acelerando
-    - Nube de OORT
+    - Está retrocediendo
+    - Se está deteniendo
     - Tercera
+    - Cuarta
+    - Segunda
+    - 1
     - 2
+    - 4
+    - 0d 15h 16min
     - 1d 0h 37min
-    - Horizonte de sucesos
+    - 2d 1h 16min
+    - El centro de todas las galaxias
     - El centro de la mayoría de las galaxias
+    - El centro de algunas galaxias
+    - Vive para siempre
     - Tiene una vida muy larga
-    - No
-    - QV Telescopii (HR 6819)
+    - Tiene una vida muy corta
+    - Porque son de color negro
     - Porque no reflejan ni emiten ningún tipo de radiación
-    - tres
+    - Ninguna de las opciones anteriores
     - 88 días
+    - 111 días
+    - 192 días
+    - 16h 50min
+    - 30h 40min
     - 9h 50min
-    - Existe uno
-    - El Sol
+    - Que el centro es el [Sol](estrella)
+    - Que el centro es la [Tierra](planeta)
+    - Que el centro es la [Luna](satelite_natural)
+    - Mercurio y Marte
     - Mercurio y Venus
-    - Siempre en dirección opuesta al Sol
-    - Dos, uno de polvo y otro de plasma
-    - Una unidad de medida de distancia
-    - Cada 76 años
-    - 8 minutos y 19 segundos
-    - Hielo
-    - sol
-    - mercurio
-    - venus
-    - tierra
-    - marte
-    - jupiter
-    - saturno
-    - urano
-    - neptuno
-    - pluton
+    - Mercurio y Urano
     - Cosmología
-    - El viento solar es una corriente de partículas energéticas expulsadas por el Sol
-    - 2062
-    - Luna
+    - Tomografía
+    - Criología
+    - Júpiter es el que más influye en las mareas por su gran masa
+    - El Sol influye más en las mareas que la Luna
+    - La Luna influye más en las mareas que el Sol
     - Rotación
+    - Traslación
+    - Giro propio
+    - Planetas
+    - Satélites
     - Estrellas
-    - Rojas-amarillas-blancas-azules
-    - baja
-    - blanco
-    - amarillo
-    - Azul
+    - Alta
+    - Baja
+    - No depende del color
     - Rojo
-    - 3000 ºC
-    - ninguno
-    - Falso
-    - alta
+    - Blanco
+    - Azul
+    - La Luna es una estrella
+    - El Sol es una estrella
+    - Plutón es el noveno planeta del Sistema Solar
+    - Cometa
+    - Meteoroide
+    - Asteroide
+    - Meteoro
+    - Meteorito
+    - Sí, son de color negro
+    - No, porque están muy lejos
+    - No, porque la luz que entra no sale, por tanto no refleja nada
+    - 300.000 m/s
+    - 300.000 km/s
+    - 3.000.000 km/s
+    - Porque sus movimientos de rotación y traslación están sincronizados
+    - Porque no rota sobre sí misma, sólo gira alrededor de la Tierra
+    - Porque la velocidad de traslación de la Luna es igual a la velocidad de rotación de la Tierra
+    - Gases
+    - Piedras
+    - Vapor de agua
+    - Es un tipo de galaxia
+    - Es el nombre de un planeta
+    - Es una etapa de la vida de una estrella
+    - Están compuesto de hidrógeno y nitrógeno
+    - Tienen gran cantidad de metano
+    - Los gases más comunes son el hidrógeno y el helio
+    - Porque tiene metano
+    - Porque tiene propano
+    - Porque tiene etano
+    - Cinturón de asteroides
+    - Nube de Oort
+    - Espacio interestelar
+    - Horizonte cósmico
+    - Horizonte de sucesos
+    - Horizonte de gravitación
+    - Los científicos creen que sí
+    - Sí, está comprobado
+    - No, no es posible
+    - QV Telescopii (HR 6819)
+    - A0620-00 (V616 Mon)
+    - Cygnus X-1 (Cyg X-1)
+    - Por su fuerza de gravedad
+    - Por su tamaño
+    - Por su forma
+    - Sí, Neptuno es un ejemplo
+    - Sí, Venus es un ejemplo
+    - No, no es posible
+    - En la misma dirección que el movimiento del cometa
+    - En dirección contraria al movimiento del cometa
+    - Siempre en dirección opuesta al Sol
+    - Dos, una de polvo y otra de gas
+    - Una, llamada cola de plasma
+    - Los cometas no tienen cola
+    - Una unidad de medida de distancia
+    - Una unidad de medida de tiempo
+    - Una unidad de medida de luminosidad
+    - Cada 76 años
+    - Cada 176 años
+    - Cada 67 años
+    - 8 segundos y 19 centésimas	
+    - 8 minutos y 19 segundos
+    - 8 horas y 19 minutos
+    - Agua
+    - Hielo
+    - Gas
+    - Sin duda es Júpiter, porque es muy grande
+    - Mercurio, porque es el más cercano al Sol
+    - Es Venus, porque refleja mucha luz
+    - El viento solar es una corriente de partículas energéticas expulsadas por el Sol
+    - La temperatura del viento solar es muy baja
+    - El viento solar es un fenómeno derivado del calentamiento global
+    - 2023
+    - 2062
+    - 2088
+    - Materia oscura y energía oscura
+    - Materia ordinaria
+    - Oxígeno
+    - Eran volcanes
+    - Se formaron a partir de meteoritos
+    - Eran grandes lagos
+    - Albert Einstein
+    - Stephen Hawking
+    - Isaac Newton
+    - Karl Schwarzschild
+    - Es verdadero, porque gastan más energía
+    - Es falso, las estrellas de mayor masa evolucionan más lentamente
+    - Es falso, la velocidad de evolución no depende de la masa
 
-- lookup: planeta
-  examples: |
-    - mercurio
-    - venus
-    - tierra
-    - marte
-    - jupiter
-    - saturno
-    - urano
-    - neptuno
-- lookup: estrella
-  examples: |
-    - sol
-- lookup: satelite_natural
-  examples: |
-    - luna
 - lookup: nombre
   examples: |
     - leonardo

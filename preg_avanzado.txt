@@ -18,15 +18,15 @@ Es un tipo de galaxia
 Es el nombre de un planeta
 Es una etapa de la vida de una estrella
 Respuesta correcta: La supernova es una explosión estelar que se produce como conclusión de la etapa final de la vida de una estrella.
-Los planetas más grandes del sistema solar, Júpiter y Saturno, están compuestos principalmente de helio e hidrógeno.
-Verdadero
-Falso
-Júpiter sí, pero Saturno no
-Respuesta correcta: Verdadero, Júpiter y Saturno son dos planetas con características muy similares, ambos están formados principalmente por hidrógeno y helio.
-¿A qué gas se debe el color azul observado en Neptuno?
-Propano
-Metano
-Etano
+¿De qué están compuestos Júpiter y Saturno?
+Están compuesto de hidrógeno y nitrógeno
+Tienen gran cantidad de metano
+Los gases más comunes son el hidrógeno y el helio
+Respuesta correcta: Júpiter y Saturno son dos planetas con características muy similares, ambos están formados principalmente por hidrógeno y helio.
+¿A qué se debe el color azul observado en Neptuno?
+Porque tiene metano
+Porque tiene propano
+Porque tiene etano
 Respuesta correcta: Metano
 ¿De qué región del sistema solar provienen los cometas?
 Cinturón de asteroides
@@ -54,24 +54,24 @@ Por su tamaño
 Por su forma
 Respuesta correcta: nada puede escapar de un agujero negro por su gran fuerza de gravedad.
 ¿Existen planetas en el Sistema Solar que su día es más largo que su año?
-Hay tres
-Existe uno
+Sí, Neptuno es un ejemplo
+Sí, Venus es un ejemplo
 No, no es posible
-Respuesta correcta: existe un único caso en el Sistema Solar, Venus, que tarda más en dar una vuelta sobre sí mismo (243 días) que en darla alrededor del Sol (224 días).
+Respuesta correcta: el único caso de planeta en el Sistema Solar que tarda más en dar una vuelta sobre sí mismo que en darla alrededor del Sol es Venus (rotación 243 días y traslación 224 días)
 ¿En qué dirección apunta la cola de gas de un cometa?
 En la misma dirección que el movimiento del cometa
 En dirección contraria al movimiento del cometa
 Siempre en dirección opuesta al Sol
 Respuesta correcta: la cola de gas está muy afectada por el viento solar, por lo que apunta siempre a la dirección opuesta al Sol.
 ¿Cuántas colas tiene un cometa?
-Dos, uno de polvo y otro de plasma.
-Uno, de polvo.
-Ninguno
-Respuesta correcta: los cometas tienen dos colas, uno de polvo y otro de plasma (gas ionizado)
+Dos, una de polvo y otra de gas
+Una, llamada cola de plasma
+Los cometas no tienen cola
+Respuesta correcta: los cometas tienen dos colas, una de polvo y otra de plasma (gas ionizado)
 ¿Qué es un año luz?
 Una unidad de medida de distancia
 Una unidad de medida de tiempo
-Ninguna de las anteriores
+Una unidad de medida de luminosidad
 Respuesta correcta: es una unidad de medida de distancia, corresponde a la distancia que recorre la luz durante un año, un año luz equivale aproximadamente a 9,46 billones de kilómetros.
 ¿Cada cuántos años se acerca el cometa Halley a la Tierra?
 Cada 67 años
@@ -89,9 +89,9 @@ Hielo
 Gas
 Respuesta correcta: hielo
 ¿Cuál es el planeta más brillante del Sistema Solar visto desde la Tierra?
-Jupiter
-Mercurio
-Venus
+Sin duda es Júpiter, porque es muy grande
+Mercurio, porque es el más cercano al Sol
+Es Venus, porque refleja mucha luz
 Respuesta correcta: Venus, porque su atmósfera se compone de nubes muy densas de dióxido de carbono que reflejan muy eficientemente la luz del Sol.
 Elija la opción correcta sobre el viento solar:
 El viento solar es una corriente de partículas energéticas expulsadas por el Sol
@@ -103,15 +103,15 @@ Sabiedo que el cometa Halley fue visto por última vez en 1986, es probable que 
 2062
 2088
 Respuesta correcta: 2062, porque el cometa Halley se ve cada 76 años.
-El 95% del universo es materia oscura y energía oscura.
-Verdadero
-Falso, el 95% es materia ordinaria
-Falso, sólo compone un 10%
-Respuesta correcta: Verdadero, la materia ordinaria representa sólo un 5% de la masa total del universo, el 95% restante es materia y energía oscura.
+El 95% del universo es...
+Materia oscura y energía oscura
+Materia ordinaria
+Oxígeno
+Respuesta correcta: la materia ordinaria representa sólo un 5% de la masa total del universo, el 95% restante es materia y energía oscura.
 ¿Cuanto mayor es la masa de una estrella, más rápida es su evolución?
-Verdadero
-Falso, las estrellas de mayor masa evolucionan más lentamente
-Falso, la velocidad de evolución no depende de la masa
+Es verdadero, porque gastan más energía
+Es falso, las estrellas de mayor masa evolucionan más lentamente
+Es falso, la velocidad de evolución no depende de la masa
 Respuesta correcta: es verdadero, las estrellas grandes gastan energía rápidamente y duran menos que las pequeñas.
 ¿Cuál es el origen de la mayoría de los cráteres de la Luna?
 Eran volcanes

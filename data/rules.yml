@@ -5,7 +5,6 @@ rules:
 - rule: Decirle adiós al usuario si se despide
   steps:
   - intent: despedirse
-  - action: action_vaciar_nota
   - action: utter_despedirse
 
 - rule: Prensentarme si el usuario me pregunta quién soy
@@ -13,10 +12,50 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Prenscsa
+- rule: Mostrar las instrucciones cuando el usuario pide ayuda
   steps:
   - intent: pedir_ayuda
   - action: utter_instrucciones
+
+- rule: usuario elige aprender, mostrar temario
+  steps:
+  - intent: aprender
+  - action: utter_temario
+
+- rule: usuario elige responder preguntas test, mostrar niveles
+  steps:
+  - intent: preg_test
+  - action: utter_niveles
+
+- rule: usuario informa nombre
+  steps:
+  - intent: informar_nombre
+  - action: action_registrar_nombre
+  - action: utter_menu
+
+- rule: saludar si el usuario saluda
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+
+
+- rule: menu
+  steps:
+  - intent: menu
+  - action: utter_menu
+
+# - rule: subtemas del tema universo
+#   steps:
+#   - intent: ver_subtemas_universo
+#   - action: utter_universo_subtemas
+  # - rule: temario de universo
+#   steps:
+#   - intent: elegir_tema
+#   - slot_was_set:
+#     - tema: universo
+#   - action: action_tema_elegido
+#   - slot_was_set:
+#     - tema: universo
 
 - rule: decir que no he entendido la frase
   steps:
@@ -25,11 +64,44 @@ rules:
   #- action: action_two_stage_fallback
   #- active_loop: action_two_stage_fallback
 
+# - rule: modo aprender, ¿tema? -> NO
+#   steps:
+#   - action: utter_temario
+#   - intent: negar
+#   - action: utter_menu
 
+# - rule: tema universo, ¿subtema? -> NO
+#   steps:
+#   - action: utter_universo_subtemas
+#   - intent: negar
+#   - action: utter_temario
 
+# - rule: tema estrellas, ¿subtema? -> NO
+#   steps:
+#   - action: utter_estrellas_subtemas
+#   - intent: negar
+#   - action: utter_universo_subtemas
 
+# - rule: tema satelites, ¿subtema? -> NO
+#   steps:
+#   - action: utter_satelitesnaturales_subtemas
+#   - intent: negar
+#   - action: utter_universo_subtemas
 
-- rule: Prenrfgv
-  steps:
-  - intent: saludar
-  - action: utter_saludar
+# - rule: tema sol, ¿subtema? -> NO
+#   steps:
+#   - action: utter_sol_subtemas
+#   - intent: negar
+#   - action: utter_temario
+
+# - rule: tema planetas ss, ¿subtema? -> NO
+#   steps:
+#   - action: utter_planetassissolar_subtemas
+#   - intent: negar
+#   - action: utter_temario
+
+# - rule: tema luna, ¿subtema? -> NO
+#   steps:
+#   - action: utter_luna_subtemas
+#   - intent: negar
+#   - action: utter_temario
