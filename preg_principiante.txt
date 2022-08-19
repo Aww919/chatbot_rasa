@@ -133,7 +133,7 @@ La Luna es una estrella
 El Sol es una estrella
 Plutón es el noveno planeta del Sistema Solar
 Respuesta correcta: El Sol es una estrella, la Luna es un satélite de la Tierra y Plutón es un planeta enano.
-¿Qué cuerpo astronómico a veces recibe el nombre de \"bola de nieve sucia\"?
+¿Qué cuerpo astronómico a veces recibe el nombre de "bola de nieve sucia"?
 Cometa
 Meteoroide
 Asteroide
@@ -143,7 +143,7 @@ Los asteroides están hechos de gas y polvo mientras que los cometas están hech
 Los cometas están hechos principalmente de roca y los asteroides de hielo
 Los cometas están hechos principalmente de hielo miestras que los asteroides están hechos de roca
 Respuesta correcta: los cometas están hechos principalmente de hielo y los asteroides de roca.
-¿A qué nos referimos con una \"roca espacial\" que llegó a la superficie de la Tierra?
+¿A qué nos referimos con una "roca espacial" que llegó a la superficie de la Tierra?
 Meteoro
 Meteorito
 Cometa

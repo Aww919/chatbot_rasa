@@ -1655,3 +1655,106 @@ stories:
   - slot_was_set:
     - preg_completas: null
   - action: utter_menu
+
+- story: interactive_story_1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: informar_nombre
+  - action: action_registrar_nombre
+  - action: utter_menu
+  - intent: aprender
+  - action: utter_temario
+  - intent: elegir_tema
+    entities:
+    - tema: luna
+  - slot_was_set:
+    - tema: luna
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: luna
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_luna
+  - intent: desconoce
+  - action: utter_resp_luna
+  - action: utter_luna_subtemas
+  - intent: pedir_ayuda
+  - action: utter_instrucciones
+  - intent: preg_test
+  - action: utter_niveles
+  - intent: elegir_nivel
+    entities:
+    - nivel: avanzado
+  - slot_was_set:
+    - nivel: avanzado
+  - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 20
+  - slot_was_set:
+    - preguntas_seguidas: 1
+  - intent: desconoce
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 0
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 20
+  - slot_was_set:
+    - preguntas_seguidas: 2
+  - intent: desconoce
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 0
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 8
+  - slot_was_set:
+    - preguntas_seguidas: 3
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 1
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 21
+  - slot_was_set:
+    - preguntas_seguidas: 4
+  - intent: responder
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 2
+  - slot_was_set:
+    - preg_completas: incompleto
+  - action: action_preguntas_test
+  - slot_was_set:
+    - n_pregunta: 6
+  - slot_was_set:
+    - preguntas_seguidas: 5
+  - intent: metano_urano
+  - action: action_comprobar_respuesta
+  - slot_was_set:
+    - n_correctos: 3
+  - slot_was_set:
+    - preg_completas: completo
+  - action: action_nota
+  - action: action_vaciar_nota
+  - slot_was_set:
+    - n_pregunta: 0
+  - slot_was_set:
+    - preguntas_seguidas: 0
+  - slot_was_set:
+    - n_correctos: 0
+  - slot_was_set:
+    - preg_completas: null
+  - action: utter_menu
+  - intent: pedir_ayuda
+  - action: utter_instrucciones
+  - intent: pedir_ayuda
+  - action: utter_instrucciones
