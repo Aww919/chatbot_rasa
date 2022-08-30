@@ -4,24 +4,40 @@ El objetivo de este trabajo es realizar un chatbot orientado al aprendizaje de c
 # Guía de instalación
 ### Instalación de Python
 - Descargar las dependencias requeridas para la instalación de Python a partir del código fuente
-	* sudo apt update
-	* sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev wget libbz2- dev
+~~~
+	sudo apt update
+~~~
+~~~
+	sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev wget libbz2- dev
+~~~
 
 - Utilizar el comando wget para descargar el archivo de la versión de Python deseada a través del enlace de descarga (en este caso Python 3.7.2):
-	* wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
-	
+~~~
+	wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+~~~
+
 - Extraer el archivo comprimido:
-	* tar -xf Python-3.7.2.tgz
-	
+~~~
+	tar -xf Python-3.7.2.tgz
+~~~
+
 - Navegar al directorio y asegurar que todas las dependencias están instaladas correctamente:
-	* cd Python-3.7.2
-	* ./configure --enable-optimizations --enable-shared
+~~~
+	cd Python-3.7.2
+~~~
+~~~
+	./configure --enable-optimizations --enable-shared
+~~~
 
 - Instalar la versión de Python sin sobreescribir sobre otras:
-	* sudo make altinstall
-	
+~~~
+	sudo make altinstall
+~~~
+
 - Por último, verificar si se ha instalado correctamente:
-	* python3.7 --version
+~~~
+	python3.7 --version
+~~~
 	
 ### Instalación de Rasa
 - Crear un directorio nuevo de trabajo:
