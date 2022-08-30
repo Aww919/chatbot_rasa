@@ -79,7 +79,7 @@ El objetivo de este trabajo es realizar un chatbot orientado al aprendizaje de c
 	rasa --version
 ~~~
 
-### Ejecución del proyecto
+# Ejecución del proyecto
 - Iniciar un proyecto de Rasa:
 ~~~
 	rasa init
