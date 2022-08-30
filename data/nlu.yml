@@ -124,6 +124,13 @@ nlu:
     - menu
     - quiero ver el menu
     - menu principal
+    - volver al menu
+    - quiero volver al menu
+    - quiero volver al menu principal
+    - muestrame el menu principal
+    - muestrame el menu
+    - vuelve al menu
+    - enseñame el menu
 
 - intent: pedir_ayuda
   examples: |
@@ -232,6 +239,8 @@ nlu:
     - [iker](nombre)
     - [marcelo](nombre)
     - [cristiano](nombre)
+    - [qiheng](nombre)
+
 
 - intent: aprender
   examples: |

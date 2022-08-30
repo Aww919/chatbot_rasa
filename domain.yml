@@ -162,6 +162,8 @@ responses:
       payload: /aprender
     - title: "Responder preguntas test"
       payload: /preg_test
+    - title: "Instrucciones de uso"
+      payload: /pedir_ayuda
     - title: "Abandonar"
       payload: /despedirse
   utter_niveles:
@@ -190,9 +192,8 @@ responses:
     - title: "Luna"
       payload: /elegir_tema{{"tema":"luna"}}
     - title: "Ninguno"
-      payload: "/negar"
-  # - text: "Elige uno de los siguiente temas:\n-Tema Universo\n-Tema Sistema Solar\n-Tema Sol\n-Tema Planetas del Sistema Solar\n-Tema Luna"
-  #   channel: "twilio"
+      payload: /menu
+
   utter_preg_temario:
   - text: "¿Quieres responder una pregunta?"
     buttons:
@@ -230,7 +231,7 @@ responses:
     - title: "Agujeros negros"
       payload: /elegir_tema{{"tema":"agujeros negros"}}
     - title: "Ninguno"
-      payload: /negar
+      payload: /aprender
   # - text: "Puedes ampliar tus conocimientos acerca del Universo:\n-Tema Estrellas\n-Tema Planetas\n-Tema Planetas enanos\n-Tema Satélites naturales\n-Tema Asteroides\n-Tema Meteoroides\n-Tema Cometas\n-Tema Agujeros negros"
   #Estrella
   utter_preg_estrellas:
@@ -342,7 +343,7 @@ responses:
   - text: "Oops, esa no era la respuesta. Es falso, el campo magnético de Marte es muy débil mientras que el de la Tierra es muy fuerte, sino no habría vida en nuestro planeta."
   #Planetas del Sistema Solar
   utter_preg_planetassissolar:
-  - text: "¿Cómo se llama el planeta más más grande del Sistema Solar? "
+  - text: "¿Cómo se llama el planeta más grande del Sistema Solar? "
   utter_resp_planetassissolar:
   - text: "Oops, esa no era la respuesta. El planeta más grande se llama Júpiter."
   utter_planetassissolar_subtemas:
@@ -413,7 +414,7 @@ responses:
   #Luna
   utter_preg_luna:
   - text: "¿En qué fase se encuentra la Luna en esta imagen?"
-    image: "https://img.blogs.es/anexom/wp-content/uploads/2021/09/fases-de-la-luna.jpg"
+    image: "https://i.pinimg.com/736x/52/1e/a5/521ea58bddaa380b04d912174d09d250--toledo.jpg"
   utter_resp_luna:
   - text: "Oops, esa no era la respuesta. Cuando la Luna presenta una forma de C, es decreciente, y cuando presenta una forma de D es creciente. Por tanto en esta imagen, la Luna se encuentra en fase decreciente."
   utter_luna_subtemas:

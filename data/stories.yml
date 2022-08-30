@@ -102,6 +102,12 @@ stories:
   - intent: negar
   - action: utter_temario
 
+- story: temario ninguno
+  steps:
+  - action: utter_universo_subtemas
+  - intent: negar
+  - action: utter_temario
+
 # Tema Estrellas
 - story: tema estrellas, ¿preg? -> NO
   steps:
@@ -116,6 +122,7 @@ stories:
   - action: utter_estrellas_subtemas
   - intent: negar
   - action: utter_universo_subtemas
+
 
 - story: tema estrellas, ¿preg? -> SI -> correcto
   steps:
@@ -155,6 +162,7 @@ stories:
   - action: utter_estrellas_subtemas
   - intent: negar
   - action: utter_universo_subtemas
+
   
 
 # Tema Ciclo vida Estrellas
@@ -775,6 +783,12 @@ stories:
   - intent: negar
   - action: utter_temario
 
+- story: ¿Subtemas Sol? -> No
+  steps:
+  - action: utter_sol_subtemas
+  - intent: negar
+  - action: utter_temario
+
 # Tema Eclipse solar
 - story: tema eclipse solar, ¿preg? -> NO
   steps:
@@ -933,6 +947,11 @@ stories:
   - intent: negar
   - action: utter_temario
 
+- story: ¿Subtemas Planetas del sistema solar? -> No
+  steps:
+  - action: utter_planetassissolar_subtemas
+  - intent: negar
+  - action: utter_temario
 
 
 # Tema Mercurio
@@ -1367,6 +1386,11 @@ stories:
   - intent: negar
   - action: utter_temario
 
+- story: ¿Subtemas luna? -> No
+  steps:
+  - action: utter_luna_subtemas
+  - intent: negar
+  - action: utter_temario
 
 #Tema Eclipse lunar
 - story: tema eclipse lunar, ¿preg? -> NO
@@ -1412,6 +1436,8 @@ stories:
     - intent: desconoce
   - action: utter_resp_eclipselunar
   - action: utter_luna_subtemas
+
+
 
 #Tema Luna Mareas
 - story: tema luna mareas, ¿preg? -> NO
@@ -1656,7 +1682,7 @@ stories:
     - preg_completas: null
   - action: utter_menu
 
-- story: interactive_story_1
+- story: interactive_story_2
   steps:
   - intent: saludar
   - action: utter_saludar
@@ -1758,3 +1784,84 @@ stories:
   - action: utter_instrucciones
   - intent: pedir_ayuda
   - action: utter_instrucciones
+
+- story: interactive_story_3
+  steps:
+  - intent: aprender
+  - action: utter_temario
+  - intent: elegir_tema
+    entities:
+    - tema: universo
+  - slot_was_set:
+    - tema: universo
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: universo
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_universo
+  - intent: negar
+  - action: utter_resp_universo
+  - action: utter_universo_subtemas
+  - intent: elegir_tema
+    entities:
+    - tema: estrellas
+  - slot_was_set:
+    - tema: estrellas
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: estrellas
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_estrellas
+  - intent: afirmar
+  - action: utter_respuesta_correcta
+  - action: utter_estrellas_subtemas
+  - intent: negar
+  - action: utter_universo_subtemas
+
+- story: interactive_story_4
+  steps:
+  - intent: elegir_tema
+    entities:
+    - tema: estrellas
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: estrellas
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_estrellas
+  - intent: negar
+  - action: utter_resp_estrellas
+  - action: utter_estrellas_subtemas
+
+- story: interactive_story_5
+  steps:
+  - intent: elegir_tema
+    entities:
+    - tema: estrellas
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: estrellas
+  - action: utter_preg_temario
+  - intent: afirmar
+  - action: utter_preg_estrellas
+  - intent: afirmar
+  - action: utter_respuesta_correcta
+  - action: utter_estrellas_subtemas
+
+- story: interactive_story_5
+  steps:
+  - intent: elegir_tema
+    entities:
+    - tema: eclipse solar
+  - slot_was_set:
+    - tema: eclipse solar
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: eclipse solar
+  - action: utter_preg_temario
+  - intent: negar
+  - action: utter_temario
+  - intent: menu
+  - action: utter_menu
