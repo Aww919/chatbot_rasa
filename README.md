@@ -25,34 +25,58 @@ El objetivo de este trabajo es realizar un chatbot orientado al aprendizaje de c
 	
 ### Instalación de Rasa
 - Crear un directorio nuevo de trabajo:
-	* mkdir RasaProject
-	* cd RasaProject
+~~~
+	mkdir RasaProject
+~~~
+~~~
+	cd RasaProject
+~~~
 	
 - Crear un entorno virual especificando la versión de Python (en este caso el entorno virtual toma el nombre de rasa1):
-	* python3.7 -m venv rasa1
-	
+~~~
+	python3.7 -m venv rasa1
+~~~
+
 - Activar el entorno virtual:
-	* source rasa1/bin/activate
+~~~
+	source rasa1/bin/activate
+~~~
 	
 - Instalar Rasa Open Source (antes de ello actualizar la versión de pip):
-	* pip3 install -U pip
-	* pip3 install rasa
+~~~
+	pip3 install -U pip
+~~~
+~~~
+	pip3 install rasa
+~~~
 	
 - Instalar las dependencias de SpaCy y su modelo en el idioma español:
-	* pip3 install rasa[spacy]
-	* python3 -m spacy download en_core_web_md
+~~~
+	pip3 install rasa[spacy]
+~~~
+~~~
+	python3 -m spacy download en_core_web_md
+~~~
 
 - Verificar la versión de rasa instalada:
-	* rasa --version
-	
+~~~
+	rasa --version
+~~~
+
 ### Ejecución del proyecto
 - Iniciar un proyecto de Rasa:
-	* rasa init
-	
+~~~
+	rasa init
+~~~
 - Clonar este repositorio en el directorio local:
-	* git clone https://github.com/Aww919/chatbot_rasa.git
-	
-- Abrir dos terminales, uno para ejecutar el modelo entrenado y otro para las actions:
-	* rasa run -m models --enable-api --cors "*" --debug
-	* rasa run actions
-	
+~~~
+	git clone https://github.com/Aww919/chatbot_rasa.git
+~~~
+
+- Abrir dos terminales, una para ejecutar el modelo entrenado y otra para las actions:
+~~~
+	rasa run -m models --enable-api --cors "*" --debug
+~~~
+~~~
+	rasa run actions
+~~~
