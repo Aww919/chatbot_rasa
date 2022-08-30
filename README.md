@@ -42,4 +42,17 @@ El objetivo de este trabajo es realizar un chatbot orientado al aprendizaje de c
 	* pip3 install rasa[spacy]
 	* python3 -m spacy download en_core_web_md
 
-### 
+- Verificar la versión de rasa instalada:
+	* rasa --version
+	
+### Ejecución del proyecto
+- Iniciar un proyecto de Rasa:
+	* rasa init
+	
+- Clonar este repositorio en el directorio local:
+	* git clone https://github.com/Aww919/chatbot_rasa.git
+	
+- Abrir dos terminales, uno para ejecutar el modelo entrenado y otro para las actions:
+	* rasa run -m models --enable-api --cors "*" --debug
+	* rasa run actions
+	
