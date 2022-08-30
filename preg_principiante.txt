@@ -22,7 +22,7 @@ Elija la afirmación correcta:
 Venus es el planeta más cercano al Sol
 Marte es el planeta más caliente
 Ninguna de las opciones
-Respuesta correcta: ninguna de la opciones, el planeta más pequeño del Sistema Solar es el Mercurio.
+Respuesta correcta: ninguna de las opciones, Mercurio es el planeta más cercano al Sol y Venus el que alcanza las temperaturas más altas.
 ¿En qué galaxia se encuentra el Sistema Solar?
 Andrómeda
 Vía Láctea
