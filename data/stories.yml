@@ -41,12 +41,23 @@ stories:
 - story: elige tema no definido
   steps:
   - intent: elegir_tema
-  - slot_was_set:
-    - tema: None
   - action: action_tema_elegido
   - slot_was_set:
     - tema: None
   - action: utter_temario
+  - action: action_listen
+
+- story: usuario elige ninguno en temario
+  steps:
+  - intent: aprender
+  - action: utter_temario
+  - intent: elegir_tema
+  - action: utter_menu
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: None
+  - action: utter_temario
+  - action: action_listen
 
 # Tema Universo
 - story: tema universo, ¿preg? -> NO
@@ -1865,3 +1876,64 @@ stories:
   - action: utter_temario
   - intent: menu
   - action: utter_menu
+
+- story: interactive_story_1
+  steps:
+  - intent: aprender
+  - action: utter_temario
+  - intent: elegir_tema
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: null
+  - action: utter_temario
+  - intent: elegir_tema
+    entities:
+    - tema: universo
+  - slot_was_set:
+    - tema: universo
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: universo
+  - action: utter_preg_temario
+
+- story: interactive_story_1
+  steps:
+  - intent: aprender
+  - action: utter_temario
+  - intent: elegir_tema
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: null
+  - action: utter_temario
+
+- story: interactive_story_1
+  steps:
+  - intent: elegir_tema
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: null
+  - action: utter_temario
+
+- story: interactive_story_1
+  steps:
+  - intent: elegir_tema
+    entities:
+    - tema: supernova
+  - slot_was_set:
+    - tema: supernova
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: null
+  - action: utter_temario
+
+- story: interactive_story_1
+  steps:
+  - intent: elegir_tema
+    entities:
+    - tema: pluton
+  - slot_was_set:
+    - tema: pluton
+  - action: action_tema_elegido
+  - slot_was_set:
+    - tema: null
+  - action: utter_temario

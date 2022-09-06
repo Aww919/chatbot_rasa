@@ -13,11 +13,20 @@
 action_endpoint:
   url: "http://localhost:5055/webhook"
   
- # url: "https://b81c-79-116-129-56.eu.ngrok.io"
 
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
 # https://rasa.com/docs/rasa/tracker-stores
+
+tracker_store:
+   type: SQL
+   dialect: "sqlite"
+   url: "sqlite:///./conv.db"
+   db: "conv.db"
+   username:
+   password:
+   query:
+    driver: my-driver
 
 #tracker_store:
 #    type: redis
